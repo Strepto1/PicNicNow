@@ -1,0 +1,2007 @@
+[
+ {
+  "name": "Boerenkoolstamppot met rookworst",
+  "kind": "zelf",
+  "difficulty": 4,
+  "prep_minutes": 35,
+  "servings": 2,
+  "tags": [
+   "stamppot",
+   "hollands",
+   "klassieker"
+  ],
+  "ingredients": [
+   {
+    "name": "boerenkool",
+    "qty": 500,
+    "unit": "g"
+   },
+   {
+    "name": "kruimige aardappelen",
+    "qty": 800,
+    "unit": "g"
+   },
+   {
+    "name": "rookworst",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "halfvolle melk",
+    "qty": 150,
+    "unit": "ml"
+   },
+   {
+    "name": "roomboter",
+    "qty": 20,
+    "unit": "g"
+   },
+   {
+    "name": "zout en peper",
+    "pantry": true
+   }
+  ],
+  "baby": {
+   "tip": "Prak aardappel en boerenkool zonder zout, melk en boter fijn; rookworst niet (te zout).",
+   "take_out_before": "zout, rookworst en jus",
+   "from_months": 6
+  }
+ },
+ {
+  "name": "Hutspot met draadjesvlees-vrije gehaktballetjes",
+  "kind": "zelf",
+  "difficulty": 4,
+  "prep_minutes": 40,
+  "servings": 2,
+  "tags": [
+   "stamppot",
+   "hollands",
+   "klassieker"
+  ],
+  "ingredients": [
+   {
+    "name": "kruimige aardappelen",
+    "qty": 700,
+    "unit": "g"
+   },
+   {
+    "name": "winterpeen",
+    "qty": 500,
+    "unit": "g"
+   },
+   {
+    "name": "uien",
+    "qty": 2,
+    "unit": "stuk"
+   },
+   {
+    "name": "rundergehakt",
+    "qty": 300,
+    "unit": "g"
+   },
+   {
+    "name": "ei",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "paneermeel",
+    "qty": 2,
+    "unit": "el",
+    "pantry": true
+   },
+   {
+    "name": "zout en peper",
+    "pantry": true
+   }
+  ],
+  "baby": {
+   "tip": "Hutspot is ideaal babyvoer: prak of pureer zonder zout. Balletjes zonder zout kneden, goed gaar, in reepjes als vingerfood vanaf 8 mnd.",
+   "take_out_before": "zout en jus",
+   "from_months": 6
+  }
+ },
+ {
+  "name": "Andijviestamppot met spekjes",
+  "kind": "zelf",
+  "difficulty": 4,
+  "prep_minutes": 30,
+  "servings": 2,
+  "tags": [
+   "stamppot",
+   "hollands",
+   "klassieker"
+  ],
+  "ingredients": [
+   {
+    "name": "andijvie",
+    "qty": 400,
+    "unit": "g"
+   },
+   {
+    "name": "kruimige aardappelen",
+    "qty": 800,
+    "unit": "g"
+   },
+   {
+    "name": "spekjes",
+    "qty": 125,
+    "unit": "g"
+   },
+   {
+    "name": "halfvolle melk",
+    "qty": 100,
+    "unit": "ml"
+   },
+   {
+    "name": "zout en peper",
+    "pantry": true
+   }
+  ],
+  "baby": {
+   "tip": "Baby: aardappel + andijvie apart prakken zonder spekjes (zout).",
+   "take_out_before": "spekjes en zout",
+   "from_months": 6
+  }
+ },
+ {
+  "name": "Spaghetti bolognese met verstopte groenten",
+  "kind": "zelf",
+  "difficulty": 4,
+  "prep_minutes": 35,
+  "servings": 2,
+  "tags": [
+   "pasta",
+   "klassieker",
+   "snel"
+  ],
+  "ingredients": [
+   {
+    "name": "volkoren spaghetti",
+    "qty": 250,
+    "unit": "g"
+   },
+   {
+    "name": "rundergehakt",
+    "qty": 300,
+    "unit": "g"
+   },
+   {
+    "name": "ui",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "knoflook",
+    "qty": 2,
+    "unit": "teen"
+   },
+   {
+    "name": "wortelen",
+    "qty": 2,
+    "unit": "stuk"
+   },
+   {
+    "name": "courgette",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "tomatenblokjes",
+    "qty": 400,
+    "unit": "g"
+   },
+   {
+    "name": "tomatenpuree",
+    "qty": 1,
+    "unit": "blik"
+   },
+   {
+    "name": "italiaanse kruiden",
+    "qty": 1,
+    "unit": "tl",
+    "pantry": true
+   },
+   {
+    "name": "parmezaan",
+    "qty": 30,
+    "unit": "g"
+   },
+   {
+    "name": "olijfolie",
+    "pantry": true
+   },
+   {
+    "name": "zout en peper",
+    "pantry": true
+   }
+  ],
+  "baby": {
+   "tip": "Saus vóór het zouten apart houden; pasta fijnknippen of kleine pastavormpjes gebruiken. Parmezaan is zout: alleen een snufje.",
+   "take_out_before": "zout en parmezaan",
+   "from_months": 6
+  },
+  "makes_extra": "bolognesesaus"
+ },
+ {
+  "name": "Lasagne met restje bolognese en spinazie",
+  "kind": "zelf",
+  "difficulty": 4,
+  "prep_minutes": 50,
+  "servings": 2,
+  "tags": [
+   "pasta",
+   "oven"
+  ],
+  "ingredients": [
+   {
+    "name": "lasagnebladen",
+    "qty": 250,
+    "unit": "g"
+   },
+   {
+    "name": "spinazie",
+    "qty": 300,
+    "unit": "g"
+   },
+   {
+    "name": "ricotta",
+    "qty": 250,
+    "unit": "g"
+   },
+   {
+    "name": "mozzarella",
+    "qty": 125,
+    "unit": "g"
+   },
+   {
+    "name": "passata",
+    "qty": 500,
+    "unit": "g"
+   },
+   {
+    "name": "parmezaan",
+    "qty": 30,
+    "unit": "g"
+   }
+  ],
+  "baby": {
+   "tip": "Een hoekje zonder extra kaas voor baby, in blokjes als vingerfood (afkoelen!).",
+   "take_out_before": "extra kaas",
+   "from_months": 8
+  },
+  "uses_leftover": "bolognesesaus"
+ },
+ {
+  "name": "Pasta pesto met broccoli en kip",
+  "kind": "zelf",
+  "difficulty": 4,
+  "prep_minutes": 20,
+  "servings": 2,
+  "tags": [
+   "pasta",
+   "snel"
+  ],
+  "ingredients": [
+   {
+    "name": "penne",
+    "qty": 250,
+    "unit": "g"
+   },
+   {
+    "name": "broccoli",
+    "qty": 350,
+    "unit": "g"
+   },
+   {
+    "name": "kipfilet",
+    "qty": 250,
+    "unit": "g"
+   },
+   {
+    "name": "groene pesto",
+    "qty": 1,
+    "unit": "potje"
+   },
+   {
+    "name": "snoeptomaatjes",
+    "qty": 250,
+    "unit": "g"
+   },
+   {
+    "name": "parmezaan",
+    "qty": 30,
+    "unit": "g"
+   }
+  ],
+  "baby": {
+   "tip": "Pesto bevat zout en kaas: baby krijgt pasta + broccoli met een klein beetje olijfolie, kip fijngesneden.",
+   "take_out_before": "pesto",
+   "from_months": 6
+  }
+ },
+ {
+  "name": "Macaroni met ham, prei en kaas",
+  "kind": "zelf",
+  "difficulty": 4,
+  "prep_minutes": 30,
+  "servings": 2,
+  "tags": [
+   "pasta",
+   "klassieker",
+   "kindvriendelijk"
+  ],
+  "ingredients": [
+   {
+    "name": "macaroni",
+    "qty": 250,
+    "unit": "g"
+   },
+   {
+    "name": "prei",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "paprika",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "hamblokjes",
+    "qty": 100,
+    "unit": "g"
+   },
+   {
+    "name": "tomatenblokjes",
+    "qty": 400,
+    "unit": "g"
+   },
+   {
+    "name": "geraspte kaas",
+    "qty": 75,
+    "unit": "g"
+   }
+  ],
+  "baby": {
+   "tip": "Ham is zout: vervang voor baby door wat fijngehakte kip of linzen.",
+   "take_out_before": "ham en kaas",
+   "from_months": 8
+  }
+ },
+ {
+  "name": "Chili sin carne met zoete aardappel",
+  "kind": "zelf",
+  "difficulty": 4,
+  "prep_minutes": 40,
+  "servings": 2,
+  "tags": [
+   "vega",
+   "wereld",
+   "eenpans"
+  ],
+  "ingredients": [
+   {
+    "name": "zoete aardappel",
+    "qty": 500,
+    "unit": "g"
+   },
+   {
+    "name": "zwarte bonen",
+    "qty": 400,
+    "unit": "g"
+   },
+   {
+    "name": "kidneybonen",
+    "qty": 400,
+    "unit": "g"
+   },
+   {
+    "name": "tomatenblokjes",
+    "qty": 400,
+    "unit": "g"
+   },
+   {
+    "name": "paprika",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "ui",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "knoflook",
+    "qty": 2,
+    "unit": "teen"
+   },
+   {
+    "name": "komijn",
+    "qty": 1,
+    "unit": "tl",
+    "pantry": true
+   },
+   {
+    "name": "chilivlokken",
+    "qty": 1,
+    "unit": "snuf",
+    "pantry": true
+   },
+   {
+    "name": "zilvervliesrijst",
+    "qty": 150,
+    "unit": "g"
+   },
+   {
+    "name": "crème fraîche",
+    "qty": 100,
+    "unit": "ml"
+   }
+  ],
+  "baby": {
+   "tip": "Chili pas toevoegen nadat baby's portie eruit is. Bonen lichtjes platdrukken (verslikgevaar).",
+   "take_out_before": "chili en zout",
+   "from_months": 7
+  },
+  "makes_extra": "rijst"
+ },
+ {
+  "name": "Kip-kerrie met rijst en sperziebonen",
+  "kind": "zelf",
+  "difficulty": 4,
+  "prep_minutes": 30,
+  "servings": 2,
+  "tags": [
+   "wereld",
+   "klassieker"
+  ],
+  "ingredients": [
+   {
+    "name": "kipfilet",
+    "qty": 300,
+    "unit": "g"
+   },
+   {
+    "name": "ui",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "kerriepoeder",
+    "qty": 2,
+    "unit": "tl",
+    "pantry": true
+   },
+   {
+    "name": "kokosmelk",
+    "qty": 200,
+    "unit": "ml"
+   },
+   {
+    "name": "sperziebonen",
+    "qty": 300,
+    "unit": "g"
+   },
+   {
+    "name": "zilvervliesrijst",
+    "qty": 150,
+    "unit": "g"
+   }
+  ],
+  "baby": {
+   "tip": "Milde kerrie is prima voor baby; sperziebonen gaar en in vingerstukjes vanaf 8 mnd.",
+   "take_out_before": "zout",
+   "from_months": 6
+  },
+  "makes_extra": "rijst"
+ },
+ {
+  "name": "Nasi goreng met ei en komkommer",
+  "kind": "zelf",
+  "difficulty": 4,
+  "prep_minutes": 25,
+  "servings": 2,
+  "tags": [
+   "wereld",
+   "restjes",
+   "snel"
+  ],
+  "ingredients": [
+   {
+    "name": "gekookte rijst (restje)",
+    "qty": 300,
+    "unit": "g"
+   },
+   {
+    "name": "prei",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "wortelen",
+    "qty": 2,
+    "unit": "stuk"
+   },
+   {
+    "name": "kipfilet",
+    "qty": 200,
+    "unit": "g"
+   },
+   {
+    "name": "eieren",
+    "qty": 2,
+    "unit": "stuk"
+   },
+   {
+    "name": "nasikruiden",
+    "qty": 1,
+    "unit": "zakje",
+    "pantry": true
+   },
+   {
+    "name": "ketjap manis",
+    "qty": 2,
+    "unit": "el",
+    "pantry": true
+   },
+   {
+    "name": "komkommer",
+    "qty": 1,
+    "unit": "stuk"
+   }
+  ],
+  "baby": {
+   "tip": "Baby: rijst + groenten + goed gebakken ei vóór ketjap/nasikruiden (zout) apart scheppen. Rijst max een paar keer per week (arseen).",
+   "take_out_before": "ketjap en nasikruiden",
+   "from_months": 8
+  },
+  "uses_leftover": "rijst"
+ },
+ {
+  "name": "Bami met kip en paksoi",
+  "kind": "zelf",
+  "difficulty": 4,
+  "prep_minutes": 25,
+  "servings": 2,
+  "tags": [
+   "wereld",
+   "snel"
+  ],
+  "ingredients": [
+   {
+    "name": "mie",
+    "qty": 250,
+    "unit": "g"
+   },
+   {
+    "name": "kipfilet",
+    "qty": 250,
+    "unit": "g"
+   },
+   {
+    "name": "paksoi",
+    "qty": 2,
+    "unit": "stuk"
+   },
+   {
+    "name": "wortelen",
+    "qty": 2,
+    "unit": "stuk"
+   },
+   {
+    "name": "bosui",
+    "qty": 1,
+    "unit": "bos"
+   },
+   {
+    "name": "knoflook",
+    "qty": 2,
+    "unit": "teen"
+   },
+   {
+    "name": "gember",
+    "qty": 1,
+    "unit": "stukje"
+   },
+   {
+    "name": "sojasaus zoutarm",
+    "qty": 2,
+    "unit": "el",
+    "pantry": true
+   }
+  ],
+  "baby": {
+   "tip": "Mie fijnknippen; sojasaus is zeer zout: baby's deel vóór de saus eruit.",
+   "take_out_before": "sojasaus",
+   "from_months": 8
+  }
+ },
+ {
+  "name": "Zalm uit de oven met krieltjes en broccoli",
+  "kind": "zelf",
+  "difficulty": 4,
+  "prep_minutes": 30,
+  "servings": 2,
+  "tags": [
+   "vis",
+   "oven",
+   "snel"
+  ],
+  "ingredients": [
+   {
+    "name": "zalmfilet",
+    "qty": 250,
+    "unit": "g"
+   },
+   {
+    "name": "krieltjes",
+    "qty": 500,
+    "unit": "g"
+   },
+   {
+    "name": "broccoli",
+    "qty": 350,
+    "unit": "g"
+   },
+   {
+    "name": "citroen",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "olijfolie",
+    "pantry": true
+   },
+   {
+    "name": "zout en peper",
+    "pantry": true
+   }
+  ],
+  "baby": {
+   "tip": "Vette vis 1x per week is goed voor baby (omega-3). Graatjes controleren, vis fijn uit elkaar halen.",
+   "take_out_before": "zout",
+   "from_months": 6
+  }
+ },
+ {
+  "name": "Kabeljauw met spinazie-aardappelpuree",
+  "kind": "zelf",
+  "difficulty": 4,
+  "prep_minutes": 30,
+  "servings": 2,
+  "tags": [
+   "vis",
+   "hollands"
+  ],
+  "ingredients": [
+   {
+    "name": "kabeljauwfilet",
+    "qty": 300,
+    "unit": "g"
+   },
+   {
+    "name": "kruimige aardappelen",
+    "qty": 700,
+    "unit": "g"
+   },
+   {
+    "name": "spinazie",
+    "qty": 300,
+    "unit": "g"
+   },
+   {
+    "name": "halfvolle melk",
+    "qty": 100,
+    "unit": "ml"
+   },
+   {
+    "name": "roomboter",
+    "qty": 20,
+    "unit": "g"
+   },
+   {
+    "name": "citroen",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "zout en peper",
+    "pantry": true
+   }
+  ],
+  "baby": {
+   "tip": "Perfect babymaal: puree + gepocheerde vis zonder zout. Spinazie vers bereiden en niet opwarmen.",
+   "take_out_before": "zout",
+   "from_months": 6
+  }
+ },
+ {
+  "name": "Pompoensoep met linzen en brood",
+  "kind": "zelf",
+  "difficulty": 4,
+  "prep_minutes": 35,
+  "servings": 2,
+  "tags": [
+   "soep",
+   "vega",
+   "batch"
+  ],
+  "ingredients": [
+   {
+    "name": "pompoen",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "rode linzen",
+    "qty": 100,
+    "unit": "g"
+   },
+   {
+    "name": "ui",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "wortelen",
+    "qty": 2,
+    "unit": "stuk"
+   },
+   {
+    "name": "kokosmelk",
+    "qty": 200,
+    "unit": "ml"
+   },
+   {
+    "name": "groentebouillon zoutarm",
+    "qty": 1,
+    "unit": "blokje",
+    "pantry": true
+   },
+   {
+    "name": "volkorenbrood",
+    "qty": 4,
+    "unit": "snee"
+   }
+  ],
+  "baby": {
+   "tip": "Kook de soep eerst in water; haal baby's portie eruit vóór de bouillon. Dik genoeg = goede babypuree. Invriezen in ijsblokjesvorm.",
+   "take_out_before": "bouillon en zout",
+   "from_months": 6
+  },
+  "makes_extra": "soep"
+ },
+ {
+  "name": "Linzendahl met spinazie en naan",
+  "kind": "zelf",
+  "difficulty": 4,
+  "prep_minutes": 35,
+  "servings": 2,
+  "tags": [
+   "vega",
+   "wereld",
+   "eenpans",
+   "batch"
+  ],
+  "ingredients": [
+   {
+    "name": "rode linzen",
+    "qty": 200,
+    "unit": "g"
+   },
+   {
+    "name": "tomatenblokjes",
+    "qty": 400,
+    "unit": "g"
+   },
+   {
+    "name": "kokosmelk",
+    "qty": 200,
+    "unit": "ml"
+   },
+   {
+    "name": "spinazie",
+    "qty": 200,
+    "unit": "g"
+   },
+   {
+    "name": "ui",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "knoflook",
+    "qty": 2,
+    "unit": "teen"
+   },
+   {
+    "name": "gember",
+    "qty": 1,
+    "unit": "stukje"
+   },
+   {
+    "name": "garam masala",
+    "qty": 1,
+    "unit": "tl",
+    "pantry": true
+   },
+   {
+    "name": "naan",
+    "qty": 2,
+    "unit": "stuk"
+   }
+  ],
+  "baby": {
+   "tip": "Dahl is een top-babygerecht (ijzer!) – mild kruiden mag. Combineer met iets met vitamine C (tomaat) voor ijzeropname.",
+   "take_out_before": "zout en chili",
+   "from_months": 6
+  }
+ },
+ {
+  "name": "Tomatensoep met balletjes",
+  "kind": "zelf",
+  "difficulty": 4,
+  "prep_minutes": 40,
+  "servings": 2,
+  "tags": [
+   "soep",
+   "hollands",
+   "klassieker"
+  ],
+  "ingredients": [
+   {
+    "name": "passata",
+    "qty": 1000,
+    "unit": "ml"
+   },
+   {
+    "name": "ui",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "wortelen",
+    "qty": 2,
+    "unit": "stuk"
+   },
+   {
+    "name": "rundergehakt",
+    "qty": 200,
+    "unit": "g"
+   },
+   {
+    "name": "vermicelli",
+    "qty": 50,
+    "unit": "g"
+   },
+   {
+    "name": "groentebouillon zoutarm",
+    "qty": 1,
+    "unit": "blokje",
+    "pantry": true
+   },
+   {
+    "name": "verse basilicum",
+    "qty": 1,
+    "unit": "bosje"
+   }
+  ],
+  "baby": {
+   "tip": "Soep voor baby zonder bouillon, balletjes zonder zout kneden.",
+   "take_out_before": "bouillon",
+   "from_months": 6
+  }
+ },
+ {
+  "name": "Shakshuka met feta en brood",
+  "kind": "zelf",
+  "difficulty": 4,
+  "prep_minutes": 25,
+  "servings": 2,
+  "tags": [
+   "vega",
+   "snel",
+   "eenpans"
+  ],
+  "ingredients": [
+   {
+    "name": "eieren",
+    "qty": 4,
+    "unit": "stuk"
+   },
+   {
+    "name": "tomatenblokjes",
+    "qty": 800,
+    "unit": "g"
+   },
+   {
+    "name": "paprika",
+    "qty": 2,
+    "unit": "stuk"
+   },
+   {
+    "name": "ui",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "knoflook",
+    "qty": 2,
+    "unit": "teen"
+   },
+   {
+    "name": "komijn",
+    "qty": 1,
+    "unit": "tl",
+    "pantry": true
+   },
+   {
+    "name": "feta",
+    "qty": 75,
+    "unit": "g"
+   },
+   {
+    "name": "volkorenbrood",
+    "qty": 4,
+    "unit": "snee"
+   },
+   {
+    "name": "verse koriander",
+    "qty": 1,
+    "unit": "bosje"
+   }
+  ],
+  "baby": {
+   "tip": "Baby's ei helemaal doorgaren (geen loperige dooier). Feta is zout: weglaten voor baby.",
+   "take_out_before": "feta en zout; ei langer garen",
+   "from_months": 6
+  }
+ },
+ {
+  "name": "Ovenschotel zoete aardappel, kikkererwten en feta",
+  "kind": "zelf",
+  "difficulty": 4,
+  "prep_minutes": 45,
+  "servings": 2,
+  "tags": [
+   "vega",
+   "oven"
+  ],
+  "ingredients": [
+   {
+    "name": "zoete aardappel",
+    "qty": 600,
+    "unit": "g"
+   },
+   {
+    "name": "kikkererwten",
+    "qty": 400,
+    "unit": "g"
+   },
+   {
+    "name": "rode ui",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "paprika",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "spinazie",
+    "qty": 150,
+    "unit": "g"
+   },
+   {
+    "name": "feta",
+    "qty": 100,
+    "unit": "g"
+   },
+   {
+    "name": "paprikapoeder",
+    "qty": 1,
+    "unit": "tl",
+    "pantry": true
+   },
+   {
+    "name": "olijfolie",
+    "pantry": true
+   }
+  ],
+  "baby": {
+   "tip": "Zoete aardappel en kikkererwten (geplet) zijn prima vingerfood; feta weglaten.",
+   "take_out_before": "feta",
+   "from_months": 6
+  }
+ },
+ {
+  "name": "Wraps met kip, avocado en mais",
+  "kind": "zelf",
+  "difficulty": 4,
+  "prep_minutes": 20,
+  "servings": 2,
+  "tags": [
+   "snel",
+   "wereld",
+   "kindvriendelijk"
+  ],
+  "ingredients": [
+   {
+    "name": "volkoren wraps",
+    "qty": 6,
+    "unit": "stuk"
+   },
+   {
+    "name": "kipfilet",
+    "qty": 300,
+    "unit": "g"
+   },
+   {
+    "name": "avocado",
+    "qty": 2,
+    "unit": "stuk"
+   },
+   {
+    "name": "mais",
+    "qty": 1,
+    "unit": "blikje"
+   },
+   {
+    "name": "snoeptomaatjes",
+    "qty": 250,
+    "unit": "g"
+   },
+   {
+    "name": "komkommer",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "crème fraîche",
+    "qty": 100,
+    "unit": "ml"
+   },
+   {
+    "name": "taco-kruiden",
+    "qty": 1,
+    "unit": "zakje",
+    "pantry": true
+   }
+  ],
+  "baby": {
+   "tip": "Avocado in reepjes is ideaal vingerfood; kip vóór de tacokruiden apart. Cherrytomaatjes in kwarten snijden!",
+   "take_out_before": "tacokruiden",
+   "from_months": 6
+  },
+  "makes_extra": "kip"
+ },
+ {
+  "name": "Risotto met champignons en doperwten",
+  "kind": "zelf",
+  "difficulty": 4,
+  "prep_minutes": 35,
+  "servings": 2,
+  "tags": [
+   "vega",
+   "italiaans"
+  ],
+  "ingredients": [
+   {
+    "name": "risottorijst",
+    "qty": 200,
+    "unit": "g"
+   },
+   {
+    "name": "champignons",
+    "qty": 250,
+    "unit": "g"
+   },
+   {
+    "name": "doperwten",
+    "qty": 150,
+    "unit": "g"
+   },
+   {
+    "name": "ui",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "groentebouillon zoutarm",
+    "qty": 1,
+    "unit": "l",
+    "pantry": true
+   },
+   {
+    "name": "parmezaan",
+    "qty": 40,
+    "unit": "g"
+   },
+   {
+    "name": "roomboter",
+    "qty": 20,
+    "unit": "g"
+   }
+  ],
+  "baby": {
+   "tip": "Kook een babyportie apart met water i.p.v. bouillon of verdun flink; parmezaan heel beperkt.",
+   "take_out_before": "bouillon en kaas",
+   "from_months": 7
+  }
+ },
+ {
+  "name": "Gnocchi traybake met kerstomaatjes en mozzarella",
+  "kind": "zelf",
+  "difficulty": 4,
+  "prep_minutes": 30,
+  "servings": 2,
+  "tags": [
+   "vega",
+   "oven",
+   "snel"
+  ],
+  "ingredients": [
+   {
+    "name": "gnocchi",
+    "qty": 500,
+    "unit": "g"
+   },
+   {
+    "name": "snoeptomaatjes",
+    "qty": 250,
+    "unit": "g"
+   },
+   {
+    "name": "courgette",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "rode ui",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "mozzarella",
+    "qty": 125,
+    "unit": "g"
+   },
+   {
+    "name": "verse basilicum",
+    "qty": 1,
+    "unit": "bosje"
+   },
+   {
+    "name": "olijfolie",
+    "pantry": true
+   }
+  ],
+  "baby": {
+   "tip": "Gnocchi halveren (verslikking), tomaatjes in kwarten. Mozzarella is relatief zoutarm: in kleine stukjes oké.",
+   "take_out_before": "zout",
+   "from_months": 8
+  }
+ },
+ {
+  "name": "Hartige quiche met prei en geitenkaas",
+  "kind": "zelf",
+  "difficulty": 4,
+  "prep_minutes": 55,
+  "servings": 2,
+  "tags": [
+   "vega",
+   "oven",
+   "lunch"
+  ],
+  "ingredients": [
+   {
+    "name": "bladerdeeg",
+    "qty": 1,
+    "unit": "rol"
+   },
+   {
+    "name": "prei",
+    "qty": 2,
+    "unit": "stuk"
+   },
+   {
+    "name": "eieren",
+    "qty": 4,
+    "unit": "stuk"
+   },
+   {
+    "name": "kookroom",
+    "qty": 200,
+    "unit": "ml"
+   },
+   {
+    "name": "geitenkaas",
+    "qty": 100,
+    "unit": "g"
+   }
+  ],
+  "baby": {
+   "tip": "Pas op: geen rauwmelkse geitenkaas voor baby. Quiche goed doorbakken.",
+   "take_out_before": "",
+   "from_months": 9
+  },
+  "makes_extra": "quiche (lunch)"
+ },
+ {
+  "name": "Pannenkoeken met appel en spinazie-variant",
+  "kind": "zelf",
+  "difficulty": 4,
+  "prep_minutes": 30,
+  "servings": 2,
+  "tags": [
+   "kindvriendelijk",
+   "weekend"
+  ],
+  "ingredients": [
+   {
+    "name": "bloem",
+    "qty": 250,
+    "unit": "g",
+    "pantry": true
+   },
+   {
+    "name": "halfvolle melk",
+    "qty": 500,
+    "unit": "ml"
+   },
+   {
+    "name": "eieren",
+    "qty": 2,
+    "unit": "stuk"
+   },
+   {
+    "name": "appels",
+    "qty": 2,
+    "unit": "stuk"
+   },
+   {
+    "name": "spinazie",
+    "qty": 100,
+    "unit": "g"
+   }
+  ],
+  "baby": {
+   "tip": "Spinazie-pannenkoek in reepjes is top-vingerfood (ijzer). Geen stroop/suiker voor baby.",
+   "take_out_before": "stroop en suiker",
+   "from_months": 7
+  }
+ },
+ {
+  "name": "Kip tandoori met bloemkoolrijst en raita",
+  "kind": "zelf",
+  "difficulty": 4,
+  "prep_minutes": 35,
+  "servings": 2,
+  "tags": [
+   "wereld"
+  ],
+  "ingredients": [
+   {
+    "name": "kippendijen",
+    "qty": 400,
+    "unit": "g"
+   },
+   {
+    "name": "griekse yoghurt",
+    "qty": 250,
+    "unit": "g"
+   },
+   {
+    "name": "tandoori kruiden",
+    "qty": 2,
+    "unit": "tl",
+    "pantry": true
+   },
+   {
+    "name": "bloemkool",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "komkommer",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "verse munt",
+    "qty": 1,
+    "unit": "bosje"
+   },
+   {
+    "name": "naan",
+    "qty": 2,
+    "unit": "stuk"
+   }
+  ],
+  "baby": {
+   "tip": "Marineer een stukje kip alleen in yoghurt (zonder kruidenmix) voor baby.",
+   "take_out_before": "tandoorikruiden",
+   "from_months": 7
+  }
+ },
+ {
+  "name": "Thaise groene curry met tofu",
+  "kind": "zelf",
+  "difficulty": 5,
+  "prep_minutes": 35,
+  "servings": 2,
+  "tags": [
+   "vega",
+   "wereld"
+  ],
+  "ingredients": [
+   {
+    "name": "tofu",
+    "qty": 375,
+    "unit": "g"
+   },
+   {
+    "name": "groene currypasta",
+    "qty": 2,
+    "unit": "el",
+    "pantry": true
+   },
+   {
+    "name": "kokosmelk",
+    "qty": 400,
+    "unit": "ml"
+   },
+   {
+    "name": "paksoi",
+    "qty": 2,
+    "unit": "stuk"
+   },
+   {
+    "name": "sperziebonen",
+    "qty": 200,
+    "unit": "g"
+   },
+   {
+    "name": "paprika",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "limoen",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "verse koriander",
+    "qty": 1,
+    "unit": "bosje"
+   },
+   {
+    "name": "jasmijnrijst",
+    "qty": 150,
+    "unit": "g"
+   }
+  ],
+  "baby": {
+   "tip": "Currypasta is pittig en zout: kook babygroenten + tofu mee in een beetje kokosmelk vóór de pasta erbij gaat.",
+   "take_out_before": "currypasta en vissaus",
+   "from_months": 7
+  },
+  "makes_extra": "rijst"
+ },
+ {
+  "name": "Beef rendang met atjar",
+  "kind": "zelf",
+  "difficulty": 5,
+  "prep_minutes": 180,
+  "servings": 2,
+  "tags": [
+   "wereld",
+   "weekend",
+   "stoofpot"
+  ],
+  "ingredients": [
+   {
+    "name": "runderlappen",
+    "qty": 600,
+    "unit": "g"
+   },
+   {
+    "name": "kokosmelk",
+    "qty": 400,
+    "unit": "ml"
+   },
+   {
+    "name": "rendangkruiden of zelfgemaakte boemboe",
+    "qty": 1,
+    "unit": "portie",
+    "pantry": true
+   },
+   {
+    "name": "citroengras",
+    "qty": 2,
+    "unit": "stengel"
+   },
+   {
+    "name": "sjalotten",
+    "qty": 4,
+    "unit": "stuk"
+   },
+   {
+    "name": "komkommer",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "wortelen",
+    "qty": 2,
+    "unit": "stuk"
+   },
+   {
+    "name": "zilvervliesrijst",
+    "qty": 150,
+    "unit": "g"
+   }
+  ],
+  "baby": {
+   "tip": "Lang gestoofd vlees is mals: haal een portie uit de pan vóór de kruiden en sambal, fijn uit elkaar trekken.",
+   "take_out_before": "kruiden en sambal",
+   "from_months": 8
+  },
+  "makes_extra": "rijst"
+ },
+ {
+  "name": "Zelfgemaakte gnocchi met salieboter en pompoen",
+  "kind": "zelf",
+  "difficulty": 5,
+  "prep_minutes": 75,
+  "servings": 2,
+  "tags": [
+   "vega",
+   "italiaans",
+   "weekend"
+  ],
+  "ingredients": [
+   {
+    "name": "kruimige aardappelen",
+    "qty": 800,
+    "unit": "g"
+   },
+   {
+    "name": "bloem",
+    "qty": 200,
+    "unit": "g",
+    "pantry": true
+   },
+   {
+    "name": "ei",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "pompoen",
+    "qty": 0.5,
+    "unit": "stuk"
+   },
+   {
+    "name": "verse salie",
+    "qty": 1,
+    "unit": "bosje"
+   },
+   {
+    "name": "roomboter",
+    "qty": 50,
+    "unit": "g"
+   },
+   {
+    "name": "parmezaan",
+    "qty": 40,
+    "unit": "g"
+   }
+  ],
+  "baby": {
+   "tip": "Gekookte gnocchi zijn ideaal vingerfood (halveren). Pompoen apart pureren.",
+   "take_out_before": "kaas en zout",
+   "from_months": 8
+  }
+ },
+ {
+  "name": "Paella met kip en garnalen",
+  "kind": "zelf",
+  "difficulty": 5,
+  "prep_minutes": 60,
+  "servings": 2,
+  "tags": [
+   "wereld",
+   "weekend"
+  ],
+  "ingredients": [
+   {
+    "name": "paellarijst",
+    "qty": 250,
+    "unit": "g"
+   },
+   {
+    "name": "kippendijen",
+    "qty": 300,
+    "unit": "g"
+   },
+   {
+    "name": "garnalen",
+    "qty": 200,
+    "unit": "g"
+   },
+   {
+    "name": "paprika",
+    "qty": 2,
+    "unit": "stuk"
+   },
+   {
+    "name": "doperwten",
+    "qty": 150,
+    "unit": "g"
+   },
+   {
+    "name": "saffraan",
+    "qty": 1,
+    "unit": "zakje",
+    "pantry": true
+   },
+   {
+    "name": "ui",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "knoflook",
+    "qty": 2,
+    "unit": "teen"
+   },
+   {
+    "name": "citroen",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "kippenbouillon zoutarm",
+    "qty": 750,
+    "unit": "ml",
+    "pantry": true
+   }
+  ],
+  "baby": {
+   "tip": "Garnalen zijn een allergeen: introduceer ze eerst los. Rijst + kip + groenten kunnen mee, bouillon zoutarm houden.",
+   "take_out_before": "zout",
+   "from_months": 8
+  }
+ },
+ {
+  "name": "Moussaka met aubergine en linzen",
+  "kind": "zelf",
+  "difficulty": 5,
+  "prep_minutes": 90,
+  "servings": 2,
+  "tags": [
+   "oven",
+   "wereld",
+   "weekend"
+  ],
+  "ingredients": [
+   {
+    "name": "aubergine",
+    "qty": 2,
+    "unit": "stuk"
+   },
+   {
+    "name": "groene linzen",
+    "qty": 200,
+    "unit": "g"
+   },
+   {
+    "name": "rundergehakt",
+    "qty": 250,
+    "unit": "g"
+   },
+   {
+    "name": "tomatenblokjes",
+    "qty": 400,
+    "unit": "g"
+   },
+   {
+    "name": "ui",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "kaneel",
+    "qty": 1,
+    "unit": "snuf",
+    "pantry": true
+   },
+   {
+    "name": "halfvolle melk",
+    "qty": 500,
+    "unit": "ml"
+   },
+   {
+    "name": "roomboter",
+    "qty": 40,
+    "unit": "g"
+   },
+   {
+    "name": "bloem",
+    "qty": 40,
+    "unit": "g",
+    "pantry": true
+   },
+   {
+    "name": "parmezaan",
+    "qty": 40,
+    "unit": "g"
+   }
+  ],
+  "baby": {
+   "tip": "De vulling (zonder zout) is een prima babypuree; bechamel met weinig kaas.",
+   "take_out_before": "zout",
+   "from_months": 7
+  }
+ },
+ {
+  "name": "Ramen met zacht ei, paksoi en shiitake",
+  "kind": "zelf",
+  "difficulty": 5,
+  "prep_minutes": 60,
+  "servings": 2,
+  "tags": [
+   "wereld",
+   "soep"
+  ],
+  "ingredients": [
+   {
+    "name": "ramennoedels",
+    "qty": 200,
+    "unit": "g"
+   },
+   {
+    "name": "eieren",
+    "qty": 2,
+    "unit": "stuk"
+   },
+   {
+    "name": "paksoi",
+    "qty": 2,
+    "unit": "stuk"
+   },
+   {
+    "name": "shiitake",
+    "qty": 150,
+    "unit": "g"
+   },
+   {
+    "name": "bosui",
+    "qty": 1,
+    "unit": "bos"
+   },
+   {
+    "name": "miso",
+    "qty": 2,
+    "unit": "el",
+    "pantry": true
+   },
+   {
+    "name": "kippenbouillon zoutarm",
+    "qty": 1,
+    "unit": "l",
+    "pantry": true
+   },
+   {
+    "name": "gember",
+    "qty": 1,
+    "unit": "stukje"
+   }
+  ],
+  "baby": {
+   "tip": "Miso en bouillon zijn zout: baby krijgt noedels (geknipt), paksoi en een goed doorgekookt ei, apart gekookt.",
+   "take_out_before": "miso, bouillon; ei hard koken",
+   "from_months": 9
+  }
+ },
+ {
+  "name": "Poké bowl met gemarineerde zalm",
+  "kind": "zelf",
+  "difficulty": 5,
+  "prep_minutes": 45,
+  "servings": 2,
+  "tags": [
+   "vis",
+   "wereld",
+   "zomer"
+  ],
+  "ingredients": [
+   {
+    "name": "sushirijst",
+    "qty": 200,
+    "unit": "g"
+   },
+   {
+    "name": "zalmfilet (sashimi-kwaliteit)",
+    "qty": 250,
+    "unit": "g"
+   },
+   {
+    "name": "edamame",
+    "qty": 150,
+    "unit": "g"
+   },
+   {
+    "name": "avocado",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "komkommer",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "wortelen",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "sojasaus zoutarm",
+    "qty": 2,
+    "unit": "el",
+    "pantry": true
+   },
+   {
+    "name": "sesamzaad",
+    "qty": 1,
+    "unit": "el",
+    "pantry": true
+   }
+  ],
+  "baby": {
+   "tip": "Géén rauwe vis voor baby: bak een stukje zalm door. Sesam is een allergeen – eerst los introduceren.",
+   "take_out_before": "rauwe vis, sojasaus",
+   "from_months": 8
+  }
+ },
+ {
+  "name": "Falafel bowl met hummus en tabouleh",
+  "kind": "zelf",
+  "difficulty": 5,
+  "prep_minutes": 60,
+  "servings": 2,
+  "tags": [
+   "vega",
+   "wereld"
+  ],
+  "ingredients": [
+   {
+    "name": "kikkererwten",
+    "qty": 400,
+    "unit": "g"
+   },
+   {
+    "name": "bulgur",
+    "qty": 150,
+    "unit": "g"
+   },
+   {
+    "name": "komkommer",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "tomaten",
+    "qty": 3,
+    "unit": "stuk"
+   },
+   {
+    "name": "verse peterselie",
+    "qty": 1,
+    "unit": "bos"
+   },
+   {
+    "name": "verse munt",
+    "qty": 1,
+    "unit": "bosje"
+   },
+   {
+    "name": "hummus",
+    "qty": 200,
+    "unit": "g"
+   },
+   {
+    "name": "citroen",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "volkoren pita",
+    "qty": 4,
+    "unit": "stuk"
+   }
+  ],
+  "baby": {
+   "tip": "Hummus op een reepje pita is perfect vingerfood (sesam/tahin = allergeen, introduceer bewust).",
+   "take_out_before": "zout",
+   "from_months": 7
+  }
+ },
+ {
+  "name": "Vispakketjes uit de oven met venkel en citroen",
+  "kind": "zelf",
+  "difficulty": 5,
+  "prep_minutes": 40,
+  "servings": 2,
+  "tags": [
+   "vis",
+   "oven"
+  ],
+  "ingredients": [
+   {
+    "name": "kabeljauwfilet",
+    "qty": 300,
+    "unit": "g"
+   },
+   {
+    "name": "venkel",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "courgette",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "citroen",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "dille",
+    "qty": 1,
+    "unit": "bosje"
+   },
+   {
+    "name": "krieltjes",
+    "qty": 500,
+    "unit": "g"
+   },
+   {
+    "name": "olijfolie",
+    "pantry": true
+   }
+  ],
+  "baby": {
+   "tip": "Witte vis in pakketje stoomt zacht – baby's pakketje zonder zout.",
+   "take_out_before": "zout",
+   "from_months": 6
+  }
+ },
+ {
+  "name": "Groentesoep van restjes (koelkast-opruimer)",
+  "kind": "zelf",
+  "difficulty": 4,
+  "prep_minutes": 30,
+  "servings": 2,
+  "tags": [
+   "soep",
+   "restjes",
+   "batch"
+  ],
+  "ingredients": [
+   {
+    "name": "restjes groente",
+    "qty": 500,
+    "unit": "g"
+   },
+   {
+    "name": "ui",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "aardappel",
+    "qty": 2,
+    "unit": "stuk"
+   },
+   {
+    "name": "groentebouillon zoutarm",
+    "qty": 1,
+    "unit": "blokje",
+    "pantry": true
+   }
+  ],
+  "baby": {
+   "tip": "Pureer een deel zonder bouillon voor baby en vries in.",
+   "take_out_before": "bouillon",
+   "from_months": 6
+  },
+  "uses_leftover": "groente"
+ },
+ {
+  "name": "Gevulde zoete aardappel met restje chili",
+  "kind": "zelf",
+  "difficulty": 4,
+  "prep_minutes": 45,
+  "servings": 2,
+  "tags": [
+   "restjes",
+   "oven"
+  ],
+  "ingredients": [
+   {
+    "name": "zoete aardappel",
+    "qty": 2,
+    "unit": "stuk"
+   },
+   {
+    "name": "crème fraîche",
+    "qty": 100,
+    "unit": "ml"
+   },
+   {
+    "name": "bosui",
+    "qty": 1,
+    "unit": "bos"
+   },
+   {
+    "name": "geraspte kaas",
+    "qty": 50,
+    "unit": "g"
+   }
+  ],
+  "baby": {
+   "tip": "Zoete aardappel uit de schil = perfecte puree of vingerfood.",
+   "take_out_before": "kaas",
+   "from_months": 6
+  },
+  "uses_leftover": "chili"
+ },
+ {
+  "name": "Kip-groentewraps van restje kip voor de lunch",
+  "kind": "zelf",
+  "difficulty": 4,
+  "prep_minutes": 10,
+  "servings": 2,
+  "tags": [
+   "lunch",
+   "restjes",
+   "snel"
+  ],
+  "ingredients": [
+   {
+    "name": "volkoren wraps",
+    "qty": 4,
+    "unit": "stuk"
+   },
+   {
+    "name": "sla",
+    "qty": 1,
+    "unit": "krop"
+   },
+   {
+    "name": "komkommer",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "hummus",
+    "qty": 100,
+    "unit": "g"
+   }
+  ],
+  "baby": {
+   "tip": "Wrap in reepjes met hummus en zachte kip: goede lunch-vingerfood.",
+   "take_out_before": "",
+   "from_months": 8
+  },
+  "uses_leftover": "kip"
+ }
+]

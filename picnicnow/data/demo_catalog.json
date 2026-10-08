@@ -1,0 +1,738 @@
+[
+ {
+  "id": "s1001",
+  "name": "Picnic trostomaten",
+  "unit_quantity": "500 g",
+  "price_cents": 239,
+  "history_weight": 6,
+  "count": 1
+ },
+ {
+  "id": "s1002",
+  "name": "Biologische trostomaten",
+  "unit_quantity": "350 g",
+  "price_cents": 299,
+  "history_weight": 3,
+  "count": 1
+ },
+ {
+  "id": "s1003",
+  "name": "Snoeptomaatjes",
+  "unit_quantity": "250 g",
+  "price_cents": 199,
+  "history_weight": 4,
+  "count": 1
+ },
+ {
+  "id": "s1004",
+  "name": "Biologische snoeptomaten",
+  "unit_quantity": "250 g",
+  "price_cents": 279,
+  "history_weight": 0,
+  "count": 1
+ },
+ {
+  "id": "s1005",
+  "name": "Komkommer",
+  "unit_quantity": "1 stuk",
+  "price_cents": 89,
+  "history_weight": 8,
+  "count": 1
+ },
+ {
+  "id": "s1006",
+  "name": "Biologische komkommer",
+  "unit_quantity": "1 stuk",
+  "price_cents": 129,
+  "history_weight": 2,
+  "count": 1
+ },
+ {
+  "id": "s1007",
+  "name": "Biologische wortelen",
+  "unit_quantity": "500 g",
+  "price_cents": 159,
+  "history_weight": 7,
+  "count": 1
+ },
+ {
+  "id": "s1008",
+  "name": "Uien",
+  "unit_quantity": "1 kg",
+  "price_cents": 129,
+  "history_weight": 5,
+  "count": 1
+ },
+ {
+  "id": "s1009",
+  "name": "Biologische rode uien",
+  "unit_quantity": "500 g",
+  "price_cents": 179,
+  "history_weight": 2,
+  "count": 1
+ },
+ {
+  "id": "s1010",
+  "name": "Knoflook",
+  "unit_quantity": "3 stuks",
+  "price_cents": 119,
+  "history_weight": 5,
+  "count": 1
+ },
+ {
+  "id": "s1011",
+  "name": "Biologische broccoli",
+  "unit_quantity": "350 g",
+  "price_cents": 229,
+  "history_weight": 6,
+  "count": 1
+ },
+ {
+  "id": "s1012",
+  "name": "Broccoli",
+  "unit_quantity": "500 g",
+  "price_cents": 179,
+  "history_weight": 2,
+  "count": 1
+ },
+ {
+  "id": "s1013",
+  "name": "Biologische courgette",
+  "unit_quantity": "1 stuk",
+  "price_cents": 149,
+  "history_weight": 4,
+  "count": 1
+ },
+ {
+  "id": "s1014",
+  "name": "Biologische zoete aardappel",
+  "unit_quantity": "500 g",
+  "price_cents": 249,
+  "history_weight": 5,
+  "count": 1
+ },
+ {
+  "id": "s1015",
+  "name": "Kruimige aardappelen",
+  "unit_quantity": "1,5 kg",
+  "price_cents": 279,
+  "history_weight": 3,
+  "count": 1
+ },
+ {
+  "id": "s1016",
+  "name": "Biologische bananen",
+  "unit_quantity": "5 stuks",
+  "price_cents": 219,
+  "history_weight": 9,
+  "count": 1
+ },
+ {
+  "id": "s1017",
+  "name": "Elstar appels",
+  "unit_quantity": "1 kg",
+  "price_cents": 299,
+  "history_weight": 5,
+  "count": 1
+ },
+ {
+  "id": "s1018",
+  "name": "Biologische elstar appels",
+  "unit_quantity": "1 kg",
+  "price_cents": 379,
+  "history_weight": 4,
+  "count": 1
+ },
+ {
+  "id": "s1019",
+  "name": "Biologische peren",
+  "unit_quantity": "4 stuks",
+  "price_cents": 299,
+  "history_weight": 3,
+  "count": 1
+ },
+ {
+  "id": "s1020",
+  "name": "Avocado eetrijp",
+  "unit_quantity": "2 stuks",
+  "price_cents": 299,
+  "history_weight": 4,
+  "count": 1
+ },
+ {
+  "id": "s1021",
+  "name": "Biologische blauwe bessen",
+  "unit_quantity": "125 g",
+  "price_cents": 349,
+  "history_weight": 4,
+  "count": 1
+ },
+ {
+  "id": "s1022",
+  "name": "Biologische spinazie",
+  "unit_quantity": "300 g",
+  "price_cents": 249,
+  "history_weight": 3,
+  "count": 1
+ },
+ {
+  "id": "s1023",
+  "name": "Biologische paprika mix",
+  "unit_quantity": "3 stuks",
+  "price_cents": 329,
+  "history_weight": 5,
+  "count": 1
+ },
+ {
+  "id": "s1024",
+  "name": "Paprika rood",
+  "unit_quantity": "2 stuks",
+  "price_cents": 199,
+  "history_weight": 2,
+  "count": 1
+ },
+ {
+  "id": "s1025",
+  "name": "Biologische pompoen",
+  "unit_quantity": "1 stuk",
+  "price_cents": 299,
+  "history_weight": 2,
+  "count": 1
+ },
+ {
+  "id": "s1026",
+  "name": "Biologische champignons",
+  "unit_quantity": "250 g",
+  "price_cents": 219,
+  "history_weight": 3,
+  "count": 1
+ },
+ {
+  "id": "s1027",
+  "name": "Verse koriander",
+  "unit_quantity": "30 g",
+  "price_cents": 99,
+  "history_weight": 2,
+  "count": 1
+ },
+ {
+  "id": "s1028",
+  "name": "Verse basilicum",
+  "unit_quantity": "20 g",
+  "price_cents": 119,
+  "history_weight": 2,
+  "count": 1
+ },
+ {
+  "id": "s1029",
+  "name": "Citroenen",
+  "unit_quantity": "3 stuks",
+  "price_cents": 159,
+  "history_weight": 3,
+  "count": 1
+ },
+ {
+  "id": "s1030",
+  "name": "Bosuitjes",
+  "unit_quantity": "1 bos",
+  "price_cents": 89,
+  "history_weight": 2,
+  "count": 1
+ },
+ {
+  "id": "s1031",
+  "name": "Gember",
+  "unit_quantity": "100 g",
+  "price_cents": 89,
+  "history_weight": 2,
+  "count": 1
+ },
+ {
+  "id": "s1032",
+  "name": "Biologische sperziebonen",
+  "unit_quantity": "300 g",
+  "price_cents": 279,
+  "history_weight": 2,
+  "count": 1
+ },
+ {
+  "id": "s1033",
+  "name": "Biologische doperwten diepvries",
+  "unit_quantity": "450 g",
+  "price_cents": 239,
+  "history_weight": 2,
+  "count": 1
+ },
+ {
+  "id": "s1040",
+  "name": "Biologische kipfilet",
+  "unit_quantity": "400 g",
+  "price_cents": 849,
+  "history_weight": 5,
+  "count": 1
+ },
+ {
+  "id": "s1041",
+  "name": "Kipfilet",
+  "unit_quantity": "500 g",
+  "price_cents": 699,
+  "history_weight": 3,
+  "count": 1
+ },
+ {
+  "id": "s1042",
+  "name": "Biologisch rundergehakt",
+  "unit_quantity": "300 g",
+  "price_cents": 579,
+  "history_weight": 6,
+  "count": 1
+ },
+ {
+  "id": "s1043",
+  "name": "Rundergehakt",
+  "unit_quantity": "500 g",
+  "price_cents": 549,
+  "history_weight": 2,
+  "count": 1
+ },
+ {
+  "id": "s1044",
+  "name": "Biologische zalmfilet",
+  "unit_quantity": "250 g",
+  "price_cents": 899,
+  "history_weight": 3,
+  "count": 1
+ },
+ {
+  "id": "s1045",
+  "name": "Kabeljauwfilet MSC",
+  "unit_quantity": "300 g",
+  "price_cents": 749,
+  "history_weight": 2,
+  "count": 1
+ },
+ {
+  "id": "s1046",
+  "name": "Biologische tofu naturel",
+  "unit_quantity": "375 g",
+  "price_cents": 279,
+  "history_weight": 3,
+  "count": 1
+ },
+ {
+  "id": "s1047",
+  "name": "Biologische kippendijen",
+  "unit_quantity": "400 g",
+  "price_cents": 749,
+  "history_weight": 2,
+  "count": 1
+ },
+ {
+  "id": "s1048",
+  "name": "Biologische spekjes",
+  "unit_quantity": "150 g",
+  "price_cents": 329,
+  "history_weight": 2,
+  "count": 1
+ },
+ {
+  "id": "s1050",
+  "name": "Biologische halfvolle melk",
+  "unit_quantity": "1 l",
+  "price_cents": 159,
+  "history_weight": 9,
+  "count": 2
+ },
+ {
+  "id": "s1051",
+  "name": "Halfvolle melk",
+  "unit_quantity": "1,5 l",
+  "price_cents": 169,
+  "history_weight": 1,
+  "count": 1
+ },
+ {
+  "id": "s1052",
+  "name": "Biologische volle yoghurt",
+  "unit_quantity": "1 l",
+  "price_cents": 219,
+  "history_weight": 8,
+  "count": 1
+ },
+ {
+  "id": "s1053",
+  "name": "Biologische scharreleieren",
+  "unit_quantity": "6 stuks",
+  "price_cents": 349,
+  "history_weight": 7,
+  "count": 1
+ },
+ {
+  "id": "s1054",
+  "name": "Vrije uitloop eieren",
+  "unit_quantity": "10 stuks",
+  "price_cents": 379,
+  "history_weight": 1,
+  "count": 1
+ },
+ {
+  "id": "s1055",
+  "name": "Biologische jong belegen kaas plakken",
+  "unit_quantity": "175 g",
+  "price_cents": 389,
+  "history_weight": 6,
+  "count": 1
+ },
+ {
+  "id": "s1056",
+  "name": "Belegen kaas 48+ plakken",
+  "unit_quantity": "190 g",
+  "price_cents": 299,
+  "history_weight": 2,
+  "count": 1
+ },
+ {
+  "id": "s1057",
+  "name": "Biologische roomboter ongezouten",
+  "unit_quantity": "250 g",
+  "price_cents": 389,
+  "history_weight": 3,
+  "count": 1
+ },
+ {
+  "id": "s1058",
+  "name": "Biologische mozzarella",
+  "unit_quantity": "125 g",
+  "price_cents": 199,
+  "history_weight": 3,
+  "count": 1
+ },
+ {
+  "id": "s1059",
+  "name": "Biologische feta",
+  "unit_quantity": "150 g",
+  "price_cents": 299,
+  "history_weight": 2,
+  "count": 1
+ },
+ {
+  "id": "s1060",
+  "name": "Parmigiano Reggiano geraspt",
+  "unit_quantity": "100 g",
+  "price_cents": 349,
+  "history_weight": 2,
+  "count": 1
+ },
+ {
+  "id": "s1061",
+  "name": "Biologische crème fraîche",
+  "unit_quantity": "200 ml",
+  "price_cents": 189,
+  "history_weight": 2,
+  "count": 1
+ },
+ {
+  "id": "s1062",
+  "name": "Biologische kwark naturel",
+  "unit_quantity": "500 g",
+  "price_cents": 249,
+  "history_weight": 3,
+  "count": 1
+ },
+ {
+  "id": "s1070",
+  "name": "Biologisch volkorenbrood heel",
+  "unit_quantity": "800 g",
+  "price_cents": 349,
+  "history_weight": 9,
+  "count": 1
+ },
+ {
+  "id": "s1071",
+  "name": "Volkoren wraps",
+  "unit_quantity": "8 stuks",
+  "price_cents": 229,
+  "history_weight": 4,
+  "count": 1
+ },
+ {
+  "id": "s1072",
+  "name": "Biologische havermout",
+  "unit_quantity": "500 g",
+  "price_cents": 189,
+  "history_weight": 4,
+  "count": 1
+ },
+ {
+  "id": "s1073",
+  "name": "Biologische volkoren crackers",
+  "unit_quantity": "200 g",
+  "price_cents": 179,
+  "history_weight": 2,
+  "count": 1
+ },
+ {
+  "id": "s1080",
+  "name": "Biologische volkoren spaghetti",
+  "unit_quantity": "500 g",
+  "price_cents": 189,
+  "history_weight": 5,
+  "count": 1
+ },
+ {
+  "id": "s1081",
+  "name": "Biologische penne",
+  "unit_quantity": "500 g",
+  "price_cents": 179,
+  "history_weight": 3,
+  "count": 1
+ },
+ {
+  "id": "s1082",
+  "name": "Biologische zilvervliesrijst",
+  "unit_quantity": "1 kg",
+  "price_cents": 349,
+  "history_weight": 3,
+  "count": 1
+ },
+ {
+  "id": "s1083",
+  "name": "Biologische tomatenblokjes",
+  "unit_quantity": "400 g",
+  "price_cents": 119,
+  "history_weight": 6,
+  "count": 2
+ },
+ {
+  "id": "s1084",
+  "name": "Biologische passata",
+  "unit_quantity": "500 g",
+  "price_cents": 199,
+  "history_weight": 4,
+  "count": 1
+ },
+ {
+  "id": "s1085",
+  "name": "Biologische kokosmelk",
+  "unit_quantity": "400 ml",
+  "price_cents": 229,
+  "history_weight": 3,
+  "count": 1
+ },
+ {
+  "id": "s1086",
+  "name": "Biologische rode linzen",
+  "unit_quantity": "400 g",
+  "price_cents": 249,
+  "history_weight": 2,
+  "count": 1
+ },
+ {
+  "id": "s1087",
+  "name": "Biologische kikkererwten",
+  "unit_quantity": "400 g",
+  "price_cents": 129,
+  "history_weight": 3,
+  "count": 1
+ },
+ {
+  "id": "s1088",
+  "name": "Biologische zwarte bonen",
+  "unit_quantity": "400 g",
+  "price_cents": 129,
+  "history_weight": 2,
+  "count": 1
+ },
+ {
+  "id": "s1089",
+  "name": "Groentebouillon zoutarm",
+  "unit_quantity": "6 tabletten",
+  "price_cents": 199,
+  "history_weight": 2,
+  "count": 1
+ },
+ {
+  "id": "s1090",
+  "name": "Biologische olijfolie extra vierge",
+  "unit_quantity": "500 ml",
+  "price_cents": 899,
+  "history_weight": 2,
+  "count": 1
+ },
+ {
+  "id": "s1091",
+  "name": "Biologische pindakaas 100% pinda",
+  "unit_quantity": "350 g",
+  "price_cents": 389,
+  "history_weight": 3,
+  "count": 1
+ },
+ {
+  "id": "s1092",
+  "name": "Biologische couscous volkoren",
+  "unit_quantity": "500 g",
+  "price_cents": 219,
+  "history_weight": 2,
+  "count": 1
+ },
+ {
+  "id": "s1093",
+  "name": "Biologische kerriepasta",
+  "unit_quantity": "100 g",
+  "price_cents": 299,
+  "history_weight": 1,
+  "count": 1
+ },
+ {
+  "id": "s1094",
+  "name": "Lasagnebladen",
+  "unit_quantity": "500 g",
+  "price_cents": 159,
+  "history_weight": 1,
+  "count": 1
+ },
+ {
+  "id": "s1100",
+  "name": "Picnic verse lasagne bolognese",
+  "unit_quantity": "400 g",
+  "price_cents": 549,
+  "history_weight": 3,
+  "count": 1
+ },
+ {
+  "id": "s1101",
+  "name": "Picnic ovenschotel kip-pesto",
+  "unit_quantity": "450 g",
+  "price_cents": 599,
+  "history_weight": 2,
+  "count": 1
+ },
+ {
+  "id": "s1102",
+  "name": "Biologische verse maaltijd linzencurry",
+  "unit_quantity": "450 g",
+  "price_cents": 649,
+  "history_weight": 1,
+  "count": 1
+ },
+ {
+  "id": "s1103",
+  "name": "Picnic maaltijdpakket pasta pesto groenten (2 pers)",
+  "unit_quantity": "1 pakket",
+  "price_cents": 1099,
+  "history_weight": 1,
+  "count": 1
+ },
+ {
+  "id": "s1104",
+  "name": "Verse pizza margherita",
+  "unit_quantity": "1 stuk",
+  "price_cents": 449,
+  "history_weight": 2,
+  "count": 1
+ },
+ {
+  "id": "s1105",
+  "name": "Biologische verse soep pompoen",
+  "unit_quantity": "500 ml",
+  "price_cents": 349,
+  "history_weight": 2,
+  "count": 1
+ },
+ {
+  "id": "s1106",
+  "name": "Maaltijdpakket Thaise groene curry (2 pers)",
+  "unit_quantity": "1 pakket",
+  "price_cents": 1149,
+  "history_weight": 0,
+  "count": 1
+ },
+ {
+  "id": "s1107",
+  "name": "Verse maaltijd zuurkool stamppot",
+  "unit_quantity": "450 g",
+  "price_cents": 499,
+  "history_weight": 0,
+  "count": 1
+ },
+ {
+  "id": "s1110",
+  "name": "Ella's Kitchen biologisch knijpzakje appel-banaan",
+  "unit_quantity": "120 g",
+  "price_cents": 149,
+  "history_weight": 6,
+  "count": 3
+ },
+ {
+  "id": "s1111",
+  "name": "Hipp biologisch groentehapje wortel-pastinaak 6m",
+  "unit_quantity": "125 g",
+  "price_cents": 129,
+  "history_weight": 4,
+  "count": 2
+ },
+ {
+  "id": "s1112",
+  "name": "Biologische babyrijstwafels zonder zout",
+  "unit_quantity": "35 g",
+  "price_cents": 189,
+  "history_weight": 2,
+  "count": 1
+ },
+ {
+  "id": "s1113",
+  "name": "Holle biologische babypap havermout",
+  "unit_quantity": "250 g",
+  "price_cents": 499,
+  "history_weight": 3,
+  "count": 1
+ },
+ {
+  "id": "s1114",
+  "name": "Luiers maat 4",
+  "unit_quantity": "44 stuks",
+  "price_cents": 1299,
+  "history_weight": 5,
+  "count": 1
+ },
+ {
+  "id": "s1115",
+  "name": "Billendoekjes sensitive",
+  "unit_quantity": "4x56 stuks",
+  "price_cents": 699,
+  "history_weight": 4,
+  "count": 1
+ },
+ {
+  "id": "s1120",
+  "name": "Biologische koffiebonen",
+  "unit_quantity": "500 g",
+  "price_cents": 1099,
+  "history_weight": 4,
+  "count": 1
+ },
+ {
+  "id": "s1121",
+  "name": "Biologische groene thee",
+  "unit_quantity": "20 zakjes",
+  "price_cents": 249,
+  "history_weight": 2,
+  "count": 1
+ },
+ {
+  "id": "s1122",
+  "name": "Vaatwastabletten",
+  "unit_quantity": "40 stuks",
+  "price_cents": 999,
+  "history_weight": 2,
+  "count": 1
+ },
+ {
+  "id": "s1123",
+  "name": "Biologische walnoten",
+  "unit_quantity": "150 g",
+  "price_cents": 449,
+  "history_weight": 2,
+  "count": 1
+ }
+]

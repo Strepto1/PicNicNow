@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#2f7d4f">
+  <title>PicNicNow</title>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="icon" href="/static/icon.svg" type="image/svg+xml">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">🧺 <span>PicNicNow</span><small id="demoBadge" hidden>demo</small></div>
+    <div class="week">
+      <button class="icon" id="prevWeek" aria-label="Vorige week">‹</button>
+      <span id="weekLabel">…</span>
+      <button class="icon" id="nextWeek" aria-label="Volgende week">›</button>
+    </div>
+    <div class="right">
+      <span id="online" class="online" title="Wie is er online"></span>
+      <button class="icon" id="openSettings" aria-label="Instellingen">⚙︎</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- GESPREK -->
+    <section id="tab-chat" class="tab active">
+      <div id="assistantOff" class="notice" hidden>
+        De assistent staat uit. Zet <code>ANTHROPIC_API_KEY</code> in <code>.env</code> om het gesprek te activeren.
+        Lijst, menu, baby en besparen werken gewoon.
+      </div>
+      <div class="chips" id="quickPrompts"></div>
+      <div id="messages" class="messages" aria-live="polite"></div>
+      <div id="transcript" class="transcript" hidden></div>
+      <div id="typing" class="typing" hidden><span></span><span></span><span></span></div>
+      <form id="chatForm" class="composer">
+        <button type="button" class="speaker" id="speakerBtn" title="Wie praat er?">?</button>
+        <input id="chatInput" autocomplete="off" placeholder="Wat eten we deze week?">
+        <button type="button" class="icon mic" id="micBtn" title="Houd ingedrukt om te praten">🎙</button>
+        <button type="submit" class="primary" aria-label="Verstuur">➤</button>
+      </form>
+      <div class="listenbar">
+        <label class="toggle"><input type="checkbox" id="listenMode"> <span>Luistermodus</span></label>
+        <label class="toggle"><input type="checkbox" id="speakReplies"> <span>Voorlezen</span></label>
+        <button class="ghost small" id="askBtn">Vraag assistent</button>
+        <button class="ghost small" id="newChat">Nieuw gesprek</button>
+      </div>
+    </section>
+
+    <!-- MENU -->
+    <section id="tab-menu" class="tab">
+      <div id="days" class="days"></div>
+      <h3>Slim combineren</h3>
+      <div id="tips" class="tips"></div>
+      <details class="card" id="knownBox">
+        <summary>Welke gerechten maken jullie vaak? <small>(bepaalt niveau 1–2)</small></summary>
+        <div id="likelyKnown"></div>
+        <div class="row"><input id="knownSearch" placeholder="Zoek gerecht in bibliotheek…"></div>
+        <div id="knownList"></div>
+      </details>
+    </section>
+
+    <!-- LIJST -->
+    <section id="tab-list" class="tab">
+      <div class="summary" id="summary"></div>
+      <div class="actions">
+        <button class="ghost" id="basicsBtn">+ Vaste boodschappen</button>
+        <button class="ghost" id="resolveBtn">Producten kiezen</button>
+        <button class="primary" id="cartBtn">Naar Picnic-mandje</button>
+      </div>
+      <form id="addItemForm" class="row">
+        <input id="addItemName" placeholder="Product toevoegen…" autocomplete="off">
+        <input id="addItemQty" type="number" step="any" min="0" placeholder="1" class="qty">
+        <button class="primary" type="submit">+</button>
+      </form>
+      <div id="list"></div>
+      <div id="selfList"></div>
+    </section>
+
+    <!-- BABY -->
+    <section id="tab-baby" class="tab">
+      <div id="babyStage" class="card"></div>
+      <h3>Ideeën voor nu</h3>
+      <div id="babyIdeas"></div>
+      <h3>Allergenen introduceren</h3>
+      <div id="allergens"></div>
+      <p class="muted small" id="babySource"></p>
+    </section>
+
+    <!-- BESPAREN -->
+    <section id="tab-deals" class="tab">
+      <div class="actions">
+        <button class="primary" id="refreshDeals">Aanbiedingen verversen</button>
+        <span class="muted small" id="dealsRefreshed"></span>
+      </div>
+      <p class="muted small">Vergelijkt duurdere producten die jullie vaak bij Picnic kopen met acties bij AH, Vomar en
+        DekaMarkt, en met vaste prijzen (via Checkjebon). Alleen echte besparingen (≥ 10% én ≥ €0,30).</p>
+      <div id="deals"></div>
+      <details class="card"><summary>Wat we in de gaten houden</summary><div id="watchlist"></div></details>
+    </section>
+  </main>
+
+  <nav class="tabs">
+    <button data-tab="chat" class="active">💬<span>Gesprek</span></button>
+    <button data-tab="menu">🍲<span>Menu</span></button>
+    <button data-tab="list">🧾<span>Lijst</span><b id="listCount"></b></button>
+    <button data-tab="baby">🍼<span>Baby</span></button>
+    <button data-tab="deals">💶<span>Besparen</span></button>
+  </nav>
+
+  <!-- bladen / dialogen -->
+  <dialog id="sheet" class="sheet">
+    <div class="sheet-head"><h2 id="sheetTitle"></h2><button class="icon" id="sheetClose" aria-label="Sluiten">✕</button></div>
+    <div id="sheetBody"></div>
+  </dialog>
+
+  <dialog id="whoDialog" class="sheet small">
+    <h2>Wie ben jij?</h2>
+    <p class="muted">Zo weet de assistent wie wat zegt.</p>
+    <div id="whoChoices" class="chips"></div>
+  </dialog>
+
+  <div id="toast" class="toast" hidden></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

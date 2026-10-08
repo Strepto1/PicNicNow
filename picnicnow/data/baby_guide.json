@@ -1,0 +1,423 @@
+{
+ "source_note": "Gebaseerd op adviezen van het Voedingscentrum (o.a. 'De eerste hapjes' en 'Introductie pinda en ei bij baby's'). Controleer bij twijfel bij het consultatiebureau.",
+ "stages": [
+  {
+   "key": "melk",
+   "from": 0,
+   "to": 4,
+   "label": "Alleen melkvoeding",
+   "texture": "-",
+   "portion": "-",
+   "notes": "Nog geen vaste voeding nodig. Vanaf ca. 4 maanden kunnen oefenhapjes."
+  },
+  {
+   "key": "oefenhapjes",
+   "from": 4,
+   "to": 6,
+   "label": "Oefenhapjes",
+   "texture": "Glad gepureerd, dun",
+   "portion": "1–3 theelepeltjes",
+   "notes": "Eén nieuwe smaak per keer. Begin ook al met pinda (pindakaas) en goed gaar ei – vóór 8 maanden introduceren."
+  },
+  {
+   "key": "puree",
+   "from": 6,
+   "to": 8,
+   "label": "Eerste maaltijdjes",
+   "texture": "Gepureerd → fijngeprakt",
+   "portion": "ca. 2–4 eetlepels per maaltijd",
+   "notes": "Groente, fruit, granen, vlees/vis/ei/peulvruchten. IJzerrijk eten + iets met vitamine C."
+  },
+  {
+   "key": "prakken",
+   "from": 8,
+   "to": 10,
+   "label": "Grover & vingerfood",
+   "texture": "Geprakt met zachte stukjes, zacht vingerfood",
+   "portion": "ca. 4–6 eetlepels",
+   "notes": "Laat zelf pakken: reepjes gestoomde groente, zachte stukjes fruit, toast-reepjes."
+  },
+  {
+   "key": "meeeten",
+   "from": 10,
+   "to": 12,
+   "label": "Mee-eten (aangepast)",
+   "texture": "Klein gesneden, zacht",
+   "portion": "ca. 6–8 eetlepels",
+   "notes": "Eet grotendeels mee: haal de portie eruit vóór zout, bouillon en pittige kruiden."
+  },
+  {
+   "key": "dreumes",
+   "from": 12,
+   "to": 48,
+   "label": "Dreumes – met de pot mee",
+   "texture": "Gewoon eten, klein gesneden",
+   "portion": "kinderportie",
+   "notes": "Nog steeds weinig zout. Hele noten pas vanaf 4 jaar (verslikken). Koemelk als drank mag nu."
+  }
+ ],
+ "rules": [
+  {
+   "match": [
+    "honing",
+    "honey"
+   ],
+   "max_months": 12,
+   "level": "verboden",
+   "msg": "Geen honing onder 1 jaar (risico op zuigelingenbotulisme)."
+  },
+  {
+   "match": [
+    "zout",
+    "bouillon",
+    "sojasaus",
+    "ketjap",
+    "miso",
+    "vissaus",
+    "maggi",
+    "aromat",
+    "kruidenmix",
+    "nasikruiden",
+    "tacokruiden",
+    "tandoori",
+    "currypasta"
+   ],
+   "max_months": 12,
+   "level": "apart",
+   "msg": "Geen zout toevoegen tot 1 jaar: haal baby's portie eruit vóór zout/bouillon/sauzen."
+  },
+  {
+   "match": [
+    "rookworst",
+    "worst",
+    "spek",
+    "spekjes",
+    "ham",
+    "hamblokjes",
+    "salami",
+    "chorizo",
+    "feta",
+    "parmezaan",
+    "kant-en-klaar"
+   ],
+   "max_months": 12,
+   "level": "beperk",
+   "msg": "Erg zout product – liever niet of heel weinig voor baby."
+  },
+  {
+   "match": [
+    "walnoten",
+    "noten",
+    "pinda's",
+    "amandelen",
+    "cashew",
+    "popcorn"
+   ],
+   "max_months": 48,
+   "level": "verboden",
+   "msg": "Hele noten/popcorn niet onder 4 jaar (verslikgevaar). Fijngemalen noten of notenpasta mag wél."
+  },
+  {
+   "match": [
+    "druiven",
+    "snoeptomaatjes",
+    "cherrytomaten",
+    "kerstomaatjes",
+    "bessen",
+    "blauwe bessen",
+    "olijven",
+    "gnocchi"
+   ],
+   "max_months": 48,
+   "level": "snijden",
+   "msg": "Ronde, gladde hapjes in de lengte halveren of in kwarten snijden (verslikgevaar)."
+  },
+  {
+   "match": [
+    "rauwe vis",
+    "sashimi",
+    "sushi",
+    "filet americain",
+    "tartaar",
+    "carpaccio",
+    "rauwmelks",
+    "oesters"
+   ],
+   "max_months": 60,
+   "level": "verboden",
+   "msg": "Geen rauwe vis/vlees of rauwmelkse kaas (listeria, salmonella)."
+  },
+  {
+   "match": [
+    "ei",
+    "eieren",
+    "zacht ei"
+   ],
+   "max_months": 12,
+   "level": "garen",
+   "msg": "Ei voor baby altijd goed doorgaren (geen loperige dooier)."
+  },
+  {
+   "match": [
+    "rijst",
+    "rijstwafels",
+    "rijstdrank",
+    "rijstwafel"
+   ],
+   "max_months": 72,
+   "level": "beperk",
+   "msg": "Rijst(producten) niet elke dag i.v.m. arseen; geen rijstdrank als melkvervanger."
+  },
+  {
+   "match": [
+    "spinazie",
+    "andijvie",
+    "bieten",
+    "biet",
+    "sla",
+    "venkel",
+    "rucola"
+   ],
+   "max_months": 12,
+   "level": "beperk",
+   "msg": "Nitraatrijke groente: vers bereiden, niet opwarmen en niet vaker dan ca. 2x per week."
+  },
+  {
+   "match": [
+    "lever",
+    "leverworst",
+    "paté",
+    "pate"
+   ],
+   "max_months": 48,
+   "level": "beperk",
+   "msg": "Leverproducten hoogstens 1x per week (veel vitamine A)."
+  },
+  {
+   "match": [
+    "suiker",
+    "stroop",
+    "chocolade",
+    "koek",
+    "limonade",
+    "sap"
+   ],
+   "max_months": 24,
+   "level": "beperk",
+   "msg": "Geen toegevoegde suiker of zoete drankjes; water en melk zijn de beste dorstlessers."
+  },
+  {
+   "match": [
+    "koemelk",
+    "halfvolle melk",
+    "volle melk",
+    "melk"
+   ],
+   "max_months": 12,
+   "level": "info",
+   "msg": "Koemelk in de bereiding (pap, puree) is prima; als drank pas vanaf 1 jaar."
+  },
+  {
+   "match": [
+    "chili",
+    "sambal",
+    "cayenne",
+    "chilivlokken"
+   ],
+   "max_months": 24,
+   "level": "apart",
+   "msg": "Pittige kruiden pas toevoegen nadat baby's portie eruit is."
+  },
+  {
+   "match": [
+    "tonijn",
+    "zwaardvis",
+    "snoekbaars",
+    "paling"
+   ],
+   "max_months": 48,
+   "level": "beperk",
+   "msg": "Roofvis/paling bevat meer kwik/dioxine: kies liever zalm, kabeljauw, koolvis of makreel."
+  }
+ ],
+ "allergens": [
+  {
+   "name": "pinda",
+   "advice": "Vóór 8 maanden introduceren (bij eczeem eerder, vóór 6 mnd). Start ¼ tl pindakaas door groente/fruit, opbouwen; daarna wekelijks blijven geven.",
+   "examples": [
+    "pindakaas 100% pinda door fruitpuree",
+    "pindakaas dun op een reepje toast"
+   ]
+  },
+  {
+   "name": "ei",
+   "advice": "Vóór 8 maanden introduceren, altijd goed gaar. Opbouwen van 1 tl naar ½ ei; daarna wekelijks.",
+   "examples": [
+    "hardgekookt ei geprakt door groente",
+    "omeletreepjes"
+   ]
+  },
+  {
+   "name": "koemelk",
+   "advice": "Vanaf 6 mnd in de bereiding (yoghurt, pap, puree).",
+   "examples": [
+    "volle yoghurt met fruit",
+    "pap van havermout met melk"
+   ]
+  },
+  {
+   "name": "tarwe/gluten",
+   "advice": "Vanaf 4–6 mnd in kleine hoeveelheden, geleidelijk opbouwen.",
+   "examples": [
+    "volkoren broodkorstje",
+    "pastasterretjes"
+   ]
+  },
+  {
+   "name": "vis",
+   "advice": "Vanaf 6 mnd, 1x per week (vette) vis.",
+   "examples": [
+    "gepocheerde zalm geprakt",
+    "kabeljauw met aardappel"
+   ]
+  },
+  {
+   "name": "soja",
+   "advice": "Vanaf 6 mnd, bv. tofu.",
+   "examples": [
+    "tofu-reepjes gebakken zonder sojasaus"
+   ]
+  },
+  {
+   "name": "sesam",
+   "advice": "Vanaf 6 mnd, bv. tahin/hummus.",
+   "examples": [
+    "hummus op een reepje pita"
+   ]
+  },
+  {
+   "name": "(gemalen) noten",
+   "advice": "Vanaf 6 mnd als notenpasta of fijngemalen – nooit hele noten.",
+   "examples": [
+    "amandelpasta door pap",
+    "gemalen walnoot door yoghurt"
+   ]
+  },
+  {
+   "name": "schaal- en schelpdieren",
+   "advice": "Mag vanaf ca. 6 mnd, goed gaar; los introduceren.",
+   "examples": [
+    "fijngehakte gare garnaal door rijst"
+   ]
+  }
+ ],
+ "ideas": {
+  "oefenhapjes": {
+   "ontbijt": [
+    "melkvoeding"
+   ],
+   "lunch": [
+    "gladde wortelpuree",
+    "gladde pastinaak",
+    "gepureerde peer",
+    "gladde broccolipuree met ¼ tl pindakaas"
+   ],
+   "tussendoor": [
+    "gepureerde banaan",
+    "gestoomde appel gepureerd"
+   ],
+   "diner": [
+    "pompoenpuree",
+    "courgette gepureerd"
+   ]
+  },
+  "puree": {
+   "ontbijt": [
+    "havermoutpap met melk en geprakte banaan",
+    "volle yoghurt met gepureerde peer"
+   ],
+   "lunch": [
+    "zoete aardappel + broccoli puree",
+    "linzenpuree met wortel en tomaat (ijzer + vit. C)",
+    "avocado geprakt met banaan",
+    "hardgekookt ei geprakt door courgettepuree"
+   ],
+   "tussendoor": [
+    "geprakte banaan met ½ tl pindakaas",
+    "gestoofde appel met kaneel",
+    "volle yoghurt met blauwe bessenpuree"
+   ],
+   "diner": [
+    "mee-eten: groente en aardappel uit de pan vóór het zout, gepureerd",
+    "gepocheerde zalm met pompoen",
+    "kipgehakt met aardappel en sperziebonen gepureerd"
+   ]
+  },
+  "prakken": {
+   "ontbijt": [
+    "havermoutpap met appel en kaneel",
+    "volkorentoast-reepjes met dun pindakaas",
+    "omeletreepjes met spinazie"
+   ],
+   "lunch": [
+    "broodreepjes met hummus",
+    "pastavormpjes met tomaat-groentesaus",
+    "zachte avocado- en komkommer-stukjes",
+    "ei-muffins met groente (zonder zout)"
+   ],
+   "tussendoor": [
+    "zachte peer- of meloenstukjes",
+    "rijstwafel zonder zout (af en toe)",
+    "gestoomde wortelstaafjes",
+    "volle yoghurt met fruit"
+   ],
+   "diner": [
+    "mee-eten: geprakt met zachte stukjes",
+    "zoete aardappel-wedges uit de oven",
+    "visstukjes met puree",
+    "linzendahl (mild)"
+   ]
+  },
+  "meeeten": {
+   "ontbijt": [
+    "havermout-banaanpannenkoekjes",
+    "volkorenbrood met zuivelspread of pindakaas",
+    "yoghurt met fruit en gemalen noten"
+   ],
+   "lunch": [
+    "broodje met hummus en komkommerreepjes",
+    "restje pasta van gisteren",
+    "groentesoep (zonder bouillon) met broodsoldaatjes",
+    "mini-quiche zonder zout"
+   ],
+   "tussendoor": [
+    "fruit in stukjes",
+    "volkoren crackertje met avocado",
+    "gestoomde broccoliroosjes"
+   ],
+   "diner": [
+    "met de pot mee, portie eruit vóór zout en pittige kruiden"
+   ]
+  },
+  "dreumes": {
+   "ontbijt": [
+    "brood met pindakaas of kaas (jong, 30+/20+)",
+    "pap of yoghurt met fruit"
+   ],
+   "lunch": [
+    "boterham met ei/hummus + groentesticks",
+    "restje van het avondeten",
+    "wrap-reepjes"
+   ],
+   "tussendoor": [
+    "fruit",
+    "volkoren cracker",
+    "snoeptomaatjes in kwarten",
+    "komkommer"
+   ],
+   "diner": [
+    "met de pot mee, zoutarm koken en aan tafel pas zouten"
+   ]
+  }
+ }
+}

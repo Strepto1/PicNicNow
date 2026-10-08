@@ -1,0 +1,10 @@
+{
+  "name": "PicNicNow – boodschappenhulp",
+  "short_name": "PicNicNow",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f6f4ef",
+  "theme_color": "#2f7d4f",
+  "lang": "nl",
+  "icons": [{ "src": "/static/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}
