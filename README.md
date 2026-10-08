@@ -24,6 +24,8 @@ dan werkt hij als een app).
 
 ## Snel starten
 
+Nodig: Python 3.13 of nieuwer (vereist door de Picnic-koppeling).
+
 ```bash
 git clone … && cd PicNicNow
 python3 -m venv .venv && . .venv/bin/activate

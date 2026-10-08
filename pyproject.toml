@@ -2,7 +2,7 @@
 name = "picnicnow"
 version = "0.1.0"
 description = "Gespreksgestuurde boodschappenhulp voor Picnic: weekmenu, boodschappenlijst, babyhapjes, bio en aanbiedingen."
-requires-python = ">=3.11"
+requires-python = ">=3.13"  # python-picnic-api2 2.x vereist 3.13
 dependencies = [
     "anthropic>=1.12",
     "fastapi>=0.115",
