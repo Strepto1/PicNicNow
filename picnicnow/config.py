@@ -35,10 +35,16 @@ class Settings:
     anthropic_api_key: str = ""
     model: str = "claude-opus-5-5"
     effort: str = "medium"
+    monthly_budget_usd: float = 5.0       # daarboven valt de app terug op de gratis commandomodus
+    assistant_mode: str = "auto"          # auto (Claude als er een sleutel is) | commando (altijd gratis)
 
     names: list[str] = field(default_factory=lambda: ["Ik", "Partner"])
     baby_name: str = "Baby"
     baby_birthdate: date | None = None
+    baby_age_months: int | None = None    # alternatief voor geboortedatum
+    baby_spice_ok: bool = False           # eet al mild gekruid mee (kerrie, knoflook, peper…)
+    baby_likes: str = ""
+    baby_avg: str = "normaal"             # normaal | af en toe  (aardappel-groente-vlees)
     persons: int = 2
     organic_level: int = 2
     organic_max_premium: int = 40
@@ -60,8 +66,13 @@ class Settings:
         return not (self.picnic_username and self.picnic_password)
 
     @property
-    def assistant_enabled(self) -> bool:
+    def has_api_key(self) -> bool:
         return bool(self.anthropic_api_key or _env("ANTHROPIC_AUTH_TOKEN"))
+
+    @property
+    def assistant_enabled(self) -> bool:
+        """Claude gebruiken? Zonder sleutel (of met PICNICNOW_ASSISTANT=commando) de gratis commandomodus."""
+        return self.has_api_key and self.assistant_mode != "commando"
 
     @classmethod
     def from_env(cls) -> "Settings":
@@ -78,9 +89,15 @@ class Settings:
             anthropic_api_key=_env("ANTHROPIC_API_KEY"),
             model=_env("PICNICNOW_MODEL", "claude-opus-5-5") or "claude-opus-5-5",
             effort=_env("PICNICNOW_EFFORT", "medium") or "medium",
+            monthly_budget_usd=float(_env("PICNICNOW_MONTHLY_BUDGET_USD", "5").replace(",", ".") or 5),
+            assistant_mode=_env("PICNICNOW_ASSISTANT", "auto").lower() or "auto",
             names=names or ["Ik", "Partner"],
             baby_name=_env("PICNICNOW_BABY_NAME", "Baby") or "Baby",
             baby_birthdate=_parse_date(_env("PICNICNOW_BABY_BIRTHDATE")),
+            baby_age_months=int(_env("PICNICNOW_BABY_AGE_MONTHS")) if _env("PICNICNOW_BABY_AGE_MONTHS").isdigit() else None,
+            baby_spice_ok=_env("PICNICNOW_BABY_SPICE").lower() in ("1", "ja", "true", "yes"),
+            baby_likes=_env("PICNICNOW_BABY_LIKES"),
+            baby_avg=_env("PICNICNOW_BABY_AVG", "normaal") or "normaal",
             persons=int(_env("PICNICNOW_PERSONS", "2") or 2),
             organic_level=int(_env("PICNICNOW_ORGANIC", "2") or 2),
             organic_max_premium=int(_env("PICNICNOW_ORGANIC_MAX_PREMIUM", "40") or 40),

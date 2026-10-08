@@ -14,7 +14,8 @@ def _same(a: str, b: str) -> bool:
     return similarity(a, b) >= 0.7 or normalize(a) == normalize(b)
 
 
-def combine_week(db: Database, week: str, baby_months: int | None = None) -> list[dict]:
+def combine_week(db: Database, week: str, baby_months: int | None = None,
+                 baby_profile: dict | None = None) -> list[dict]:
     plan = [r for r in plan_get(db, week) if r["meal"]]
     tips: list[dict] = []
     if not plan:
@@ -101,6 +102,15 @@ def combine_week(db: Database, week: str, baby_months: int | None = None) -> lis
                      "detail": "Advies: 1x per week (vette) vis – ook goed voor baby. Bijvoorbeeld: "
                                + ", ".join(m["name"] for m in fish) + ".",
                      "meal_ids": [m["id"] for m in fish]})
+    bp = baby_profile or {}
+    if bp.get("avg") == "af en toe" and not tag_count.get("avg") and len(plan) >= 4:
+        avg = sorted([m for m in library if "avg" in m["tags"]],
+                     key=lambda m: (0 if {"mediterraan", "kindvriendelijk"} & set(m["tags"]) else 1, m["level"]))[:3]
+        name = bp.get("name") or "de baby"
+        tips.append({"type": "baby", "title": "Eén keer aardappel-groente-vlees?",
+                     "detail": f"{name} is geen AVG-fan, maar het is goed om eraan te blijven wennen. "
+                               "Op smaak gebracht gaat het makkelijker: " + ", ".join(m["name"] for m in avg) + ".",
+                     "meal_ids": [m["id"] for m in avg]})
     vega = tag_count.get("vega", 0)
     if len(plan) >= 5 and vega < 2:
         tips.append({"type": "balans", "title": f"{vega} vegetarische avond(en)",

@@ -14,6 +14,7 @@ from pydantic import BaseModel
 
 from . import baby, meals
 from .assistant import Assistant
+from .commands import HELP, Commands
 from .core import App
 from .deals import service as deals
 from .history import staples, sync_history
@@ -132,6 +133,7 @@ class TwoFAIn(BaseModel):
 def create_app(app: App | None = None, assistant: Assistant | None = None) -> FastAPI:
     core = app or App()
     bot = assistant or Assistant(core)
+    commands = Commands(core)
     hub = Hub()
     api = FastAPI(title="PicNicNow", version="0.1.0")
 
@@ -195,7 +197,7 @@ def create_app(app: App | None = None, assistant: Assistant | None = None) -> Fa
     def chat_history(week: str | None = None):
         week = week or core.active_week()
         cid = bot.conversation_id(week)
-        return {"conversation_id": cid, "messages": bot.history(cid), "enabled": core.settings.assistant_enabled}
+        return {"conversation_id": cid, "messages": bot.history(cid), "assistant": core.assistant_status()}
 
     @api.post("/api/chat/new", dependencies=guard)
     async def chat_new():
@@ -208,16 +210,13 @@ def create_app(app: App | None = None, assistant: Assistant | None = None) -> Fa
         week = core.active_week()
         if body.text:
             await hub.broadcast({"type": "message", "role": "user", "speaker": body.speaker, "display": body.text})
+        status = core.assistant_status()
+        if status["mode"] == "commando":
+            return await command_chat(week, body)
         if not body.respond:
             if body.text:
                 await run_in_threadpool(bot.note, week, body.speaker or "Wij", body.text)
             return {"reply": None}
-        if not core.settings.assistant_enabled:
-            if body.text:
-                await run_in_threadpool(bot.note, week, body.speaker or "Wij", body.text)
-            msg = "De assistent staat uit: zet ANTHROPIC_API_KEY in .env om het gesprek te activeren."
-            await hub.broadcast({"type": "message", "role": "assistant", "speaker": "assistent", "display": msg})
-            return {"reply": msg, "changed": False}
         await hub.broadcast({"type": "typing", "on": True})
         try:
             result = await run_in_threadpool(bot.respond, week, body.speaker, body.text, lambda: changed(week))
@@ -229,6 +228,28 @@ def create_app(app: App | None = None, assistant: Assistant | None = None) -> Fa
         if result.get("changed"):
             await notify(week)
         return result
+
+    async def command_chat(week: str, body: ChatIn) -> dict:
+        """Gratis modus: herken opdrachten zonder AI. Gewoon gepraat (luistermodus) wordt genegeerd."""
+        if not body.text:
+            return {"reply": None}
+        await run_in_threadpool(bot.note, week, body.speaker or "Wij", body.text)
+        result = await run_in_threadpool(commands.handle, week, body.speaker, body.text)
+        if result is None:
+            if not body.respond:
+                return {"reply": None}
+            reply, did_change = "Dat snap ik zonder AI niet. " + HELP, False
+        else:
+            reply, did_change = result.text, result.changed
+        await run_in_threadpool(bot.store_reply, week, reply)
+        await hub.broadcast({"type": "message", "role": "assistant", "speaker": "assistent", "display": reply})
+        if did_change:
+            await notify(week)
+        return {"reply": reply, "changed": did_change, "mode": "commando"}
+
+    @api.get("/api/usage", dependencies=guard)
+    def get_usage():
+        return core.assistant_status()
 
     # --- boodschappenlijst ----------------------------------------------------------------
     @api.post("/api/list", dependencies=guard)
@@ -338,7 +359,7 @@ def create_app(app: App | None = None, assistant: Assistant | None = None) -> Fa
     @api.get("/api/meals/suggest", dependencies=guard)
     def suggest(level: int | None = None, count: int = 6, tag: str | None = None, q: str | None = None):
         return meals.suggest(core.db, core.active_week(), level=level, count=count, tags=[tag] if tag else None,
-                             baby_months=core.baby_months, query=q)
+                             baby_months=core.baby_months, query=q, baby_profile=core.baby_profile)
 
     @api.get("/api/meals/ready", dependencies=guard)
     def ready():
@@ -368,12 +389,12 @@ def create_app(app: App | None = None, assistant: Assistant | None = None) -> Fa
         m = meals.get_meal(core.db, meal_id)
         if not m:
             raise HTTPException(404)
-        return {**m, "baby_adapt": baby.adapt_meal(m, core.baby_birthdate)}
+        return {**m, "baby_adapt": baby.adapt_meal(m, core.baby_birthdate, profile=core.baby_profile)}
 
     # --- baby ----------------------------------------------------------------------
     @api.get("/api/baby", dependencies=guard)
     def baby_info():
-        return {**baby.ideas(core.baby_birthdate),
+        return {**baby.ideas(core.baby_birthdate, profile=core.baby_profile), "taste": core.baby_profile,
                 "allergens": baby.allergen_status(core.db, core.baby_birthdate),
                 "tried": baby.foods_tried(core.db), "source": baby.guide()["source_note"]}
 

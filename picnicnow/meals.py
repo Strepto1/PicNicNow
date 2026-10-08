@@ -11,11 +11,12 @@ Niveaus
 from __future__ import annotations
 
 import json
+import re
 from datetime import timedelta
 from importlib import resources
 
 from .db import Database
-from .text import DAYS, normalize, similarity, week_monday
+from .text import DAYS, normalize, similarity, tokens, week_monday
 
 LEVELS = {
     1: "Vertrouwd",
@@ -47,22 +48,28 @@ def load_recipes() -> list[dict]:
     return json.loads(raw)
 
 
+def _recipe_row(r: dict) -> tuple:
+    extra = {**r.get("baby", {}), "makes_extra": r.get("makes_extra"), "uses_leftover": r.get("uses_leftover"),
+             "servings": r.get("servings", 2)}
+    return (r.get("kind", "zelf"), r.get("difficulty", 4), json.dumps(r["ingredients"], ensure_ascii=False),
+            json.dumps(r.get("tags", []), ensure_ascii=False), r.get("prep_minutes"),
+            json.dumps(extra, ensure_ascii=False))
+
+
 def seed_recipes(db: Database) -> int:
+    """Bibliotheek bijwerken: nieuwe recepten toevoegen, bestaande bibliotheekrecepten verversen
+    (ingrediënten, tags, babytips) zonder jullie eigen gegevens (bekendheid, keer gekookt) te raken."""
     added = 0
     for r in load_recipes():
-        exists = db.one("SELECT id FROM meals WHERE name = ?", (r["name"],))
+        exists = db.one("SELECT id, source FROM meals WHERE name = ?", (r["name"],))
         if exists:
+            if exists["source"] == "bibliotheek":
+                db.execute("UPDATE meals SET kind = ?, difficulty = ?, ingredients = ?, tags = ?, prep_minutes = ?, "
+                           "baby = ? WHERE id = ?", (*_recipe_row(r), exists["id"]))
             continue
         db.execute(
-            "INSERT INTO meals(name, kind, difficulty, familiarity, ingredients, tags, prep_minutes, baby, source, notes) "
-            "VALUES (?,?,?,?,?,?,?,?,?,?)",
-            (r["name"], r.get("kind", "zelf"), r.get("difficulty", 4), "nieuw",
-             json.dumps(r["ingredients"], ensure_ascii=False), json.dumps(r.get("tags", []), ensure_ascii=False),
-             r.get("prep_minutes"), json.dumps({**r.get("baby", {}), "makes_extra": r.get("makes_extra"),
-                                                "uses_leftover": r.get("uses_leftover"),
-                                                "servings": r.get("servings", 2)}, ensure_ascii=False),
-             "bibliotheek", None),
-        )
+            "INSERT INTO meals(name, kind, difficulty, ingredients, tags, prep_minutes, baby, familiarity, source) "
+            "VALUES (?,?,?,?,?,?,?,?,?)", (r["name"], *_recipe_row(r), "nieuw", "bibliotheek"))
         added += 1
     return added
 
@@ -307,8 +314,18 @@ def week_ingredients(db: Database, week: str) -> list[str]:
 
 
 def suggest(db: Database, week: str, *, level: int | None = None, count: int = 5, tags: list[str] | None = None,
-            max_minutes: int | None = None, baby_months: int | None = None, query: str | None = None) -> list[dict]:
+            max_minutes: int | None = None, baby_months: int | None = None, query: str | None = None,
+            baby_profile: dict | None = None) -> list[dict]:
     """Gerechtsuggesties met uitleg waarom (restjes-match, variatie, baby, bekendheid)."""
+    bp = baby_profile or {}
+    baby_name = bp.get("name") or "baby"
+    like_words = {tokens(w).pop(): w.strip() for w in re.split(r"[,;/]| en ", bp.get("likes") or "")
+                  if tokens(w)}  # stam -> woord zoals ingevuld
+    avg_due = None
+    if bp.get("avg") == "af en toe":
+        # AVG af en toe: één keer per ~week is genoeg, en dan graag op smaak gebracht
+        prev = plan_get(db, previous_week(week))
+        avg_due = not any(r["meal"] and "avg" in r["meal"]["tags"] for r in plan_get(db, week) + prev)
     planned = plan_get(db, week)
     planned_ids = {r["meal_id"] for r in planned if r["meal_id"]}
     recent = recent_meal_ids(db, week)
@@ -346,16 +363,41 @@ def suggest(db: Database, week: str, *, level: int | None = None, count: int = 5
         if baby_months is not None and m.get("baby"):
             if baby_months >= (m["baby"].get("from_months") or 6):
                 score += 0.3
-                reasons.append("baby kan mee-eten")
+                reasons.append(f"{baby_name} kan mee-eten")
+        if like_words:
+            words = tokens(" ".join(i["name"] for i in m["ingredients"] if i["name"] != "zout en peper")
+                           + " " + " ".join(m["tags"]) + " " + m["name"])
+            liked = [like_words[k] for k in like_words if k in words]
+            if liked:
+                score += min(0.4, 0.15 * len(liked))
+                reasons.append(f"{baby_name} lust: " + ", ".join(liked[:3]))
+        if avg_due is not None and "avg" in m["tags"]:
+            if avg_due:
+                score += 0.2
+                reasons.append(f"tijd voor AVG – goed voor {baby_name} om aan te blijven wennen")
+            else:
+                score -= 0.25
         if m["level"] == 1:
             reasons.append(f"{m['times_cooked'] or 'vaak'}x gemaakt" if m["times_cooked"] else "vertrouwd")
         if "vega" in m["tags"]:
             score += 0.1
+        # meest zeggende reden eerst; 'kan mee-eten' achteraan
+        reasons.sort(key=lambda r: r.endswith("kan mee-eten"))
         out.append({"id": m["id"], "name": m["name"], "level": m["level"], "level_label": m["level_label"],
                     "prep_minutes": m.get("prep_minutes"), "tags": m["tags"], "score": round(score, 2),
                     "reasons": reasons, "kind": m["kind"]})
     out.sort(key=lambda x: (-x["score"], x["name"]))
+    if avg_due is not None and not (tags and "avg" in tags):
+        # 'af en toe': hooguit één AVG-gerecht tussen de suggesties
+        first_avg = next((x for x in out if "avg" in x["tags"]), None)
+        out = [x for x in out if "avg" not in x["tags"] or x is first_avg]
     return out[:count]
+
+
+def previous_week(week: str) -> str:
+    from .text import iso_week
+
+    return iso_week(week_monday(week) - timedelta(days=7))
 
 
 def scale_ingredient(ing: dict, factor: float) -> dict:

@@ -106,7 +106,9 @@ class ShoppingList:
         toks = tokens(name)
         for keyword, mode in self.mode_rules().items():
             kt = tokens(keyword)
-            if kt and all(any(k in t or t in k for t in toks) for k in kt):
+            # kern van een Nederlandse samenstelling staat achteraan: 'tros|tomaten' is een tomaat,
+            # 'tomaten|blokjes' niet
+            if kt and all(any(t == k or t.endswith(k) for t in toks) for k in kt):
                 return mode
         return "auto"
 
@@ -194,7 +196,10 @@ class ShoppingList:
                                             s.times, 1.0, "historie"))
                 self.db.execute("UPDATE list_items SET product_count = ? WHERE id = ?",
                                 (max(1, round(s.avg_quantity)), item["id"]))
-            out.append(self.get(item["id"]))
+            row = self.get(item["id"])
+            if all(o["id"] != row["id"] for o in out):
+                out.append(row)
+            open_items.append(row)
         return out
 
     def update(self, item_id: int, **fields) -> dict | None:

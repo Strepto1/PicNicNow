@@ -8,7 +8,7 @@ import threading
 from datetime import date
 from typing import Any, Callable
 
-from . import baby, combine, meals
+from . import baby, combine, meals, usage
 from .core import App
 from .db import now_iso
 from .deals import service as deals
@@ -20,6 +20,7 @@ log = logging.getLogger(__name__)
 
 MAX_TOOL_ROUNDS = 12
 FALLBACK_BETA = "server-side-fallback-2026-07-01"
+FALLBACK_MODELS = {"claude-opus-5-5", "claude-opus-5", "claude-fable-5-1", "claude-sonnet-5-5"}
 
 SYSTEM_TEMPLATE = """Je bent de boodschappen- en kookassistent van een gezin. Je luistert mee met het gesprek \
 tussen {names} over de weekboodschappen en het weekmenu, en je helpt actief mee.
@@ -27,6 +28,7 @@ tussen {names} over de weekboodschappen en het weekmenu, en je helpt actief mee.
 Huishouden
 - Volwassenen: {names} ({persons} personen eten mee).
 - Baby: {baby_name}, {baby_age}. Fase: {baby_stage}.
+- Smaak van {baby_name}: {baby_taste}
 - Bio-voorkeur: {organic}.
 - Dieet/voorkeuren: {diet_notes}
 - Keuken/tijd: {kitchen_notes}
@@ -61,6 +63,21 @@ def _organic_text(level: int) -> str:
             2: "bij voorkeur altijd biologisch"}.get(int(level), "bij voorkeur biologisch")
 
 
+def _baby_taste(p: dict) -> str:
+    parts = []
+    if p.get("baby_spice_ok"):
+        parts.append("eet al mild gekruid mee (kerrie, knoflook, ui, peper e.d. mogen mee; alleen zout, "
+                     "bouillon/sauzen en echte chili eruit)")
+    if p.get("baby_likes"):
+        parts.append(f"lust graag: {p['baby_likes']}")
+    if p.get("baby_avg") == "af en toe":
+        parts.append("geen fan van aardappel-groente-vlees, maar plan dat ongeveer 1x per week, bij voorkeur "
+                     "op smaak gebracht (kruiden, knoflook, mediterraan) zodat het er toch in gaat")
+    if p.get("baby_notes"):
+        parts.append(p["baby_notes"])
+    return "; ".join(parts) or "nog niets bekend (vraag gerust)"
+
+
 def build_system(app: App) -> str:
     p = app.profile()
     st = baby.stage(app.baby_birthdate)
@@ -73,6 +90,7 @@ def build_system(app: App) -> str:
         baby_name=p["baby_name"],
         baby_age=f"{months} maanden" if months is not None else "leeftijd onbekend (vraag ernaar)",
         baby_stage=f"{st['label']} – textuur: {st['texture']}",
+        baby_taste=_baby_taste(p),
         organic=_organic_text(p["organic_level"]),
         diet_notes=p.get("diet_notes") or "geen bijzonderheden bekend",
         kitchen_notes=p.get("kitchen_notes") or "doordeweeks liefst ≤ 35 min",
@@ -299,7 +317,7 @@ class Tools:
         result = {"gepland": f"{DAY_NAMES[dag]} {moment}: {meal['name']}", "niveau": meal["level"],
                   "op_lijst": added, "voorraadkast_checken": self.app.shopping.pantry_check(meal)}
         if not moment.startswith("baby"):
-            adapt = baby.adapt_meal(meal, self.app.baby_birthdate)
+            adapt = baby.adapt_meal(meal, self.app.baby_birthdate, profile=self.app.baby_profile)
             result["baby"] = {"kan_mee": adapt["verdict"], "hoe": adapt["steps"][:2],
                               "let_op": [w["msg"] for w in adapt["warnings"][:3]]}
         return result
@@ -325,7 +343,8 @@ class Tools:
         if niveau == 3:
             return self.t_kant_en_klaar_opties()
         sug = meals.suggest(self.app.db, self.week, level=niveau, count=aantal or 5, tags=tags,
-                            max_minutes=max_minuten, baby_months=self.app.baby_months, query=zoekterm)
+                            max_minutes=max_minuten, baby_months=self.app.baby_months, query=zoekterm,
+                            baby_profile=self.app.baby_profile)
         result = {"suggesties": [{"gerecht": s["name"], "niveau": f"{s['level']} {s['level_label']}",
                                   "minuten": s["prep_minutes"], "waarom": s["reasons"]} for s in sug]}
         if niveau in (1, 2) and not sug:
@@ -341,7 +360,8 @@ class Tools:
 
     def t_combineer_tips(self) -> dict:
         return {"tips": [f"{t['title']}: {t['detail']}"
-                         for t in combine.combine_week(self.app.db, self.week, self.app.baby_months)]}
+                         for t in combine.combine_week(self.app.db, self.week, self.app.baby_months,
+                                                          self.app.baby_profile)]}
 
     def t_markeer_bekendheid(self, gerecht: str, bekendheid: str) -> dict:
         m = meals.set_familiarity(self.app.db, gerecht, bekendheid)
@@ -356,14 +376,14 @@ class Tools:
         if gerecht:
             m = meals.get_meal(self.app.db, gerecht)
             if not m:
-                warnings = baby.check_ingredients([gerecht], self.app.baby_months)
+                warnings = baby.check_ingredients([gerecht], self.app.baby_months, self.app.baby_profile["spice_ok"])
                 return {"fase": baby.stage(self.app.baby_birthdate),
                         "let_op": [w["msg"] for w in warnings],
                         "hint": "Gerecht onbekend in de bibliotheek; geef algemeen advies voor deze fase."}
-            a = baby.adapt_meal(m, self.app.baby_birthdate)
+            a = baby.adapt_meal(m, self.app.baby_birthdate, profile=self.app.baby_profile)
             return {"gerecht": m["name"], "fase": a["stage"]["label"], "kan_mee": a["verdict"], "hoe": a["steps"],
                     "let_op": [w["msg"] for w in a["warnings"]]}
-        info = baby.ideas(self.app.baby_birthdate)
+        info = baby.ideas(self.app.baby_birthdate, profile=self.app.baby_profile)
         return {"fase": info["stage"], "ideeen": info["ideas"],
                 "bron": baby.guide()["source_note"]}
 
@@ -490,6 +510,12 @@ class Assistant:
             self._store(cid, "user", [{"type": "text", "text": f"{speaker}: {text}"}], speaker, text)
             return cid
 
+    def store_reply(self, week: str, text: str) -> None:
+        """Antwoord van de gratis commandomodus bewaren (als gewone assistent-tekst in het gesprek)."""
+        with self._lock:
+            cid = self.conversation_id(week)
+            self._store(cid, "assistant", [{"type": "text", "text": text}], "assistent", text)
+
     def respond(self, week: str, speaker: str | None, text: str | None, on_change: Callable[[], None] | None = None) -> dict:
         """Verwerk een bericht en geef het antwoord van de assistent."""
         with self._lock:
@@ -540,17 +566,25 @@ class Assistant:
 
     def _call(self, conversation_id: int):
         s = self.app.settings
-        return self.client.beta.messages.create(
-            model=s.model,
+        model = self.app.profile().get("model") or s.model
+        kwargs = {}
+        if model in FALLBACK_MODELS:  # server-side terugval bij een weigering (niet voor Haiku)
+            kwargs = {"betas": [FALLBACK_BETA], "fallbacks": "default"}
+        response = self.client.beta.messages.create(
+            model=model,
             max_tokens=16000,
             system=[{"type": "text", "text": build_system(self.app), "cache_control": {"type": "ephemeral"}}],
             tools=TOOLS,
             messages=self._api_messages(conversation_id),
             output_config={"effort": s.effort},
             cache_control={"type": "ephemeral"},
-            betas=[FALLBACK_BETA],
-            fallbacks="default",
+            **kwargs,
         )
+        try:
+            usage.record(self.app.db, getattr(response, "model", None) or model, response.usage)
+        except Exception:  # kosten bijhouden mag het gesprek nooit breken
+            log.exception("Kosten registreren mislukt")
+        return response
 
 
 def today_label() -> str:

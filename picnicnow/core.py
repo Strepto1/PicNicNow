@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from datetime import date
+from datetime import date, timedelta
 
-from . import baby, combine, meals
+from . import baby, combine, meals, usage
 from .config import Settings
 from .db import Database
 from .picnic import PicnicService, make_picnic
@@ -12,7 +12,8 @@ from .shopping import ShoppingList
 from .text import iso_week, next_week
 
 PROFILE_FIELDS = ("names", "baby_name", "baby_birthdate", "persons", "organic_level", "diet_notes",
-                  "kitchen_notes", "budget_week")
+                  "kitchen_notes", "budget_week", "baby_spice_ok", "baby_likes", "baby_avg", "baby_notes",
+                  "model", "monthly_budget_usd")
 
 
 class App:
@@ -36,8 +37,20 @@ class App:
             "diet_notes": "",
             "kitchen_notes": "",
             "budget_week": None,
+            "baby_spice_ok": s.baby_spice_ok,
+            "baby_likes": s.baby_likes,
+            "baby_avg": s.baby_avg,
+            "baby_notes": "",
+            "model": s.model,
+            "monthly_budget_usd": s.monthly_budget_usd,
         }
-        base.update({k: v for k, v in (self.db.get_pref("profile", {}) or {}).items() if k in PROFILE_FIELDS})
+        stored = self.db.get_pref("profile", {}) or {}
+        if not stored.get("baby_birthdate") and not base["baby_birthdate"] and s.baby_age_months is not None:
+            # alleen een leeftijd opgegeven: één keer omrekenen naar een (geschatte) geboortedatum,
+            # zodat de leeftijd daarna vanzelf meegroeit
+            stored["baby_birthdate"] = (date.today() - timedelta(days=round(s.baby_age_months * 30.44))).isoformat()
+            self.db.set_pref("profile", stored)
+        base.update({k: v for k, v in stored.items() if k in PROFILE_FIELDS})
         return base
 
     def update_profile(self, **changes) -> dict:
@@ -62,6 +75,29 @@ class App:
     def baby_months(self) -> int | None:
         return baby.age_months(self.baby_birthdate)
 
+    @property
+    def baby_profile(self) -> dict:
+        p = self.profile()
+        return {"name": p["baby_name"], "spice_ok": bool(p.get("baby_spice_ok")),
+                "likes": p.get("baby_likes") or "", "avg": p.get("baby_avg") or "normaal",
+                "notes": p.get("baby_notes") or ""}
+
+    # --- assistent: Claude of gratis commandomodus ------------------------------
+    def assistant_status(self) -> dict:
+        p = self.profile()
+        budget = p.get("monthly_budget_usd")
+        spent = usage.month_summary(self.db)
+        if not self.settings.has_api_key:
+            mode, reason = "commando", "geen API-sleutel"
+        elif self.settings.assistant_mode == "commando":
+            mode, reason = "commando", "commandomodus ingesteld"
+        elif usage.over_budget(self.db, budget):
+            mode, reason = "commando", f"maandbudget van ${budget:.2f} bereikt"
+        else:
+            mode, reason = "claude", ""
+        return {"mode": mode, "reason": reason, "model": p.get("model") or self.settings.model,
+                "budget_usd": budget, "usage": spent, "models": usage.MODEL_CHOICES}
+
     # --- week ------------------------------------------------------------------
     def active_week(self) -> str:
         week = self.db.get_pref("active_week")
@@ -81,16 +117,16 @@ class App:
         plan = meals.plan_get(self.db, week)
         for row in plan:
             if row["meal"] and row["slot"] == "diner":
-                row["baby"] = baby.adapt_meal(row["meal"], self.baby_birthdate)
+                row["baby"] = baby.adapt_meal(row["meal"], self.baby_birthdate, profile=self.baby_profile)
         return {
             "week": week,
             "profile": self.profile(),
             "demo": self.picnic.demo,
-            "assistant": self.settings.assistant_enabled,
+            "assistant": self.assistant_status(),
             "plan": plan,
             "list": self.shopping.items(week),
             "summary": self.shopping.summary(week),
-            "tips": combine.combine_week(self.db, week, self.baby_months),
+            "tips": combine.combine_week(self.db, week, self.baby_months, self.baby_profile),
             "baby_stage": baby.stage(self.baby_birthdate),
             "mode_rules": self.shopping.mode_rules(),
             "last_sync": self.db.get_pref("last_sync"),

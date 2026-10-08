@@ -153,7 +153,11 @@ async function refresh() {
   S = await api("/api/state");
   $("#weekLabel").textContent = weekLabel(S.week);
   $("#demoBadge").hidden = !S.demo;
-  $("#assistantOff").hidden = S.assistant;
+  const a = S.assistant;
+  $("#assistantOff").hidden = a.mode === "claude";
+  $("#assistantOff").innerHTML = `<b>Gratis commandomodus</b> (${esc(a.reason)}): korte opdrachten werken zonder AI, bv.
+    <i>“zet melk en 2 komkommers op de lijst”</i>, <i>“woensdag shakshuka”</i>, <i>“iets nieuws?”</i>. Typ <i>help</i> voor meer.`;
+  if (renderQuick.mode !== a.mode) renderQuick(a.mode);
   renderMenu();
   renderList();
   $("#listCount").textContent = S.summary.open || "";
@@ -173,9 +177,22 @@ const QUICK = [
   ["💶 Aanbiedingen", "Zijn er dure dingen die we nu goedkoper elders kunnen halen?"],
 ];
 
-function renderQuick() {
+const QUICK_CMD = [
+  ["✨ Suggesties", "suggesties"],
+  ["😌 Iets vertrouwds", "iets vertrouwds?"],
+  ["📦 Kant-en-klaar", "kant-en-klaar ideeën"],
+  ["🆕 Iets nieuws", "iets nieuws?"],
+  ["👩‍🍳 Uitdaging", "iets uitdagends voor het weekend?"],
+  ["🍼 Baby-ideeën", "wat kan de baby eten"],
+  ["🔁 Vaste boodschappen", "vaste boodschappen"],
+  ["🧩 Combineren", "combineertips"],
+  ["💶 Aanbiedingen", "aanbiedingen"],
+];
+
+function renderQuick(mode = "claude") {
+  renderQuick.mode = mode;
   $("#quickPrompts").innerHTML = "";
-  for (const [label, text] of QUICK) {
+  for (const [label, text] of mode === "claude" ? QUICK : QUICK_CMD) {
     const b = document.createElement("button");
     b.textContent = label;
     b.onclick = () => sendChat(text);
@@ -402,9 +419,11 @@ async function openSuggest(day, slot) {
   $("#sugFree", body).onclick = async () => {
     const title = $("#sugQ", body).value.trim();
     if (!title) return;
-    if (S.assistant && slot === "diner") {
+    if (slot === "diner") {
       closeSheet();
-      return sendChat(`Zet "${title}" op ${DAY_NAMES[day].toLowerCase()} (${slot}) en zet de ingrediënten op de lijst.`);
+      return sendChat(S.assistant.mode === "claude"
+        ? `Zet "${title}" op ${DAY_NAMES[day].toLowerCase()} (${slot}) en zet de ingrediënten op de lijst.`
+        : `${DAY_NAMES[day].toLowerCase()} ${title}`);
     }
     await guarded(() => api("/api/plan", { method: "POST", body: { day, slot, title } }), "Gepland.");
     closeSheet();
@@ -541,7 +560,10 @@ async function loadBaby() {
   $("#babyStage").innerHTML = `<h2>${esc(S.profile.baby_name)}${st.months != null ? ` · ${st.months} mnd` : ""}</h2>
     <p><b>${esc(st.label)}</b> – ${esc(st.texture)}${st.portion !== "-" ? ` (${esc(st.portion)})` : ""}</p>
     <p class="muted small">${esc(st.notes)}</p>
-    ${st.months == null ? `<p class="small">Vul de geboortedatum in bij ⚙︎ voor advies op maat.</p>` : ""}`;
+    ${st.months == null ? `<p class="small">Vul de geboortedatum of leeftijd in bij ⚙︎ voor advies op maat.</p>` : ""}
+    ${b.taste && (b.taste.spice_ok || b.taste.likes || b.taste.avg === "af en toe") ? `<p class="small">👅 ${[
+      b.taste.spice_ok ? "eet mild gekruid mee" : "", b.taste.likes ? "lust: " + esc(b.taste.likes) : "",
+      b.taste.avg === "af en toe" ? "AVG af en toe (op smaak gebracht)" : ""].filter(Boolean).join(" · ")}</p>` : ""}`;
   $("#babyIdeas").innerHTML = `<div class="ideas">${Object.entries(b.ideas).map(([m, list]) =>
     `<div class="card"><b>${esc(m)}</b><ul>${list.map((x) => `<li>${esc(x)}</li>`).join("")}</ul></div>`).join("")}</div>`;
   $("#allergens").innerHTML = b.allergens.map((a) => {
@@ -583,11 +605,19 @@ async function loadDeals() {
 // ---------------------------------------------------------------------------
 async function openSettings() {
   const p = S.profile;
+  const a = S.assistant;
   const status = await api("/api/picnic/status").catch(() => ({}));
   const body = openSheet("Instellingen", `
     <div class="field"><label>Namen (komma-gescheiden)</label><input id="sNames" value="${esc(p.names.join(", "))}"></div>
     <div class="row"><div class="field" style="flex:1"><label>Naam baby</label><input id="sBaby" value="${esc(p.baby_name)}"></div>
       <div class="field" style="flex:1"><label>Geboortedatum</label><input id="sBirth" type="date" value="${esc(p.baby_birthdate || "")}"></div></div>
+    <div class="row"><div class="field" style="flex:1"><label>…of leeftijd (maanden)</label><input id="sAge" type="number" min="0" max="48" placeholder="${S.baby_stage.months ?? ""}"></div>
+      <div class="field" style="flex:1"><label>Aardappel-groente-vlees</label><select id="sAvg">
+        <option value="normaal" ${p.baby_avg !== "af en toe" ? "selected" : ""}>gewoon</option>
+        <option value="af en toe" ${p.baby_avg === "af en toe" ? "selected" : ""}>af en toe (geen fan)</option></select></div></div>
+    <label class="toggle"><input type="checkbox" id="sSpice" ${p.baby_spice_ok ? "checked" : ""}> Baby eet al mild gekruid mee (kerrie, knoflook, peper…)</label>
+    <div class="field"><label>Baby lust graag</label><input id="sLikes" value="${esc(p.baby_likes || "")}" placeholder="bv. kerrie, knoflook, rijst, pasta, tomaat, mediterraan"></div>
+    <div class="field"><label>Baby – overige notities</label><input id="sBabyNotes" value="${esc(p.baby_notes || "")}" placeholder="bv. lust geen spinazie, eet graag zelf"></div>
     <div class="row"><div class="field" style="flex:1"><label>Personen (volwassen porties)</label><input id="sPersons" type="number" min="1" value="${p.persons}"></div>
       <div class="field" style="flex:1"><label>Weekbudget (€)</label><input id="sBudget" type="number" min="0" value="${p.budget_week ?? ""}"></div></div>
     <div class="field"><label>Biologisch</label><select id="sOrganic">
@@ -597,6 +627,12 @@ async function openSettings() {
     <div class="field"><label>Dieet / voorkeuren (bv. 'partner eet geen varkensvlees', 'max 2x vlees per week')</label><textarea id="sDiet" rows="2">${esc(p.diet_notes || "")}</textarea></div>
     <div class="field"><label>Keuken & tijd (bv. 'doordeweeks max 30 min', 'airfryer')</label><textarea id="sKitchen" rows="2">${esc(p.kitchen_notes || "")}</textarea></div>
     <div class="actions"><button class="primary" id="sSave">Opslaan</button><button class="ghost" id="sWho">Ik ben iemand anders</button></div>
+    <h3>Assistent & kosten</h3>
+    <p class="small">${a.mode === "claude" ? "Claude actief ✓" : "Gratis commandomodus – " + esc(a.reason)}
+      · deze maand ${a.usage.calls} aanroepen, <b>$${a.usage.cost_usd.toFixed(2)}</b>${a.budget_usd ? ` van $${Number(a.budget_usd).toFixed(2)}` : ""}</p>
+    <div class="row"><div class="field" style="flex:2"><label>Model</label><select id="sModel">${a.models.map((m) => `<option value="${m.id}" ${m.id === a.model ? "selected" : ""}>${esc(m.label)}</option>`).join("")}</select></div>
+      <div class="field" style="flex:1"><label>Maandbudget ($, 0 = geen)</label><input id="sBudgetAi" type="number" min="0" step="0.5" value="${a.budget_usd ?? 5}"></div></div>
+    <p class="muted small">Boven het budget schakelt de app vanzelf over op de gratis commandomodus.</p>
     <h3>Picnic</h3>
     <p class="small">${status.demo ? "Demo-modus (geen account ingesteld in .env)." : status.ready ? "Verbonden ✓" : "Niet ingelogd."}
       ${status.products ? ` · ${status.products} producten in historie` : ""}${status.last_sync ? ` · laatste sync ${esc(status.last_sync.replace("T", " ").slice(0, 16))}` : ""}</p>
@@ -608,11 +644,15 @@ async function openSettings() {
     await guarded(() => api("/api/profile", { method: "POST", body: {
       names: $("#sNames", body).value.split(",").map((s) => s.trim()).filter(Boolean),
       baby_name: $("#sBaby", body).value.trim() || "Baby",
-      baby_birthdate: $("#sBirth", body).value || null,
+      baby_birthdate: $("#sAge", body).value !== "" ? new Date(Date.now() - Number($("#sAge", body).value) * 30.44 * 864e5).toISOString().slice(0, 10)
+                                                    : $("#sBirth", body).value || null,
       persons: Number($("#sPersons", body).value) || 2,
       budget_week: $("#sBudget", body).value ? Number($("#sBudget", body).value) : null,
       organic_level: Number($("#sOrganic", body).value),
-      diet_notes: $("#sDiet", body).value, kitchen_notes: $("#sKitchen", body).value } }), "Opgeslagen.");
+      diet_notes: $("#sDiet", body).value, kitchen_notes: $("#sKitchen", body).value,
+      baby_spice_ok: $("#sSpice", body).checked, baby_likes: $("#sLikes", body).value.trim(),
+      baby_avg: $("#sAvg", body).value, baby_notes: $("#sBabyNotes", body).value.trim(),
+      model: $("#sModel", body).value, monthly_budget_usd: Number($("#sBudgetAi", body).value) || 0 } }), "Opgeslagen.");
     closeSheet();
   };
   $("#sWho", body).onclick = () => { closeSheet(); chooseWho(true); };

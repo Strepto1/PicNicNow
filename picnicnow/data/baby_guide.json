@@ -84,7 +84,7 @@
    ],
    "max_months": 12,
    "level": "apart",
-   "msg": "Geen zout toevoegen tot 1 jaar: haal baby's portie eruit vóór zout/bouillon/sauzen."
+   "msg": "Geen zout toevoegen tot 1 jaar: haal baby's portie eruit vóór zout/bouillon/sauzen. Kruidenmixen (nasi, taco, tandoori) bevatten vaak zout – losse kruiden zijn beter."
   },
   {
    "match": [
@@ -226,7 +226,9 @@
    ],
    "max_months": 24,
    "level": "apart",
-   "msg": "Pittige kruiden pas toevoegen nadat baby's portie eruit is."
+   "msg": "Pittige kruiden pas toevoegen nadat baby's portie eruit is.",
+   "id": "pittig",
+   "msg_spice_ok": "Echte chili/sambal: hooguit een vleugje – pittig liever pas na het opscheppen toevoegen."
   },
   {
    "match": [
@@ -417,6 +419,54 @@
    ],
    "diner": [
     "met de pot mee, zoutarm koken en aan tafel pas zouten"
+   ]
+  }
+ },
+ "ideas_adventurous": {
+  "prakken": {
+   "ontbijt": [
+    "omeletreepjes met prei en een snufje kerrie",
+    "volkorentoast-reepjes met hummus",
+    "havermout met appel, kaneel en gemalen noten"
+   ],
+   "lunch": [
+    "rijst met milde kerrie, doperwten en geprakte kip",
+    "pastavormpjes met tomaten-knoflooksaus en courgette",
+    "couscous met geroosterde mediterrane groenten (paprika, courgette, aubergine)",
+    "kikkererwten-tomatenstoofje met komijn, licht geprakt",
+    "linzendahl met wortel (mild, zonder zout)",
+    "shakshuka-ei (goed gaar) met brood om te dippen"
+   ],
+   "tussendoor": [
+    "hummus op een reepje pita",
+    "gestoomde broccoli met een drupje olijfolie en knoflook",
+    "volle yoghurt met kaneel en peer"
+   ],
+   "diner": [
+    "mee-eten: kerrie, knoflook, ui en peper mogen mee – alleen zout en echte chili eruit",
+    "pasta met gehaktballetjes in tomatensaus (balletjes halveren)",
+    "risotto/rijst met prei en kip"
+   ]
+  },
+  "meeeten": {
+   "ontbijt": [
+    "mini-omelet met prei en tomaat",
+    "volkorenbrood met hummus of notenpasta",
+    "yoghurt met kaneel en fruit"
+   ],
+   "lunch": [
+    "restje curry of dahl van gisteren",
+    "orzo met tomaat en courgette",
+    "wrap-reepjes met kip en avocado",
+    "pasta met pesto van basilicum zonder kaas/zout"
+   ],
+   "tussendoor": [
+    "falafel-balletjes (zelfgemaakt, zoutarm)",
+    "komkommer en paprika met hummus",
+    "fruit in stukjes"
+   ],
+   "diner": [
+    "met de pot mee, gekruid mag – zout en chili pas na het opscheppen"
    ]
   }
  }

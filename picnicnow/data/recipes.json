@@ -8,7 +8,8 @@
   "tags": [
    "stamppot",
    "hollands",
-   "klassieker"
+   "klassieker",
+   "avg"
   ],
   "ingredients": [
    {
@@ -56,7 +57,8 @@
   "tags": [
    "stamppot",
    "hollands",
-   "klassieker"
+   "klassieker",
+   "avg"
   ],
   "ingredients": [
    {
@@ -110,7 +112,8 @@
   "tags": [
    "stamppot",
    "hollands",
-   "klassieker"
+   "klassieker",
+   "avg"
   ],
   "ingredients": [
    {
@@ -153,7 +156,8 @@
   "tags": [
    "pasta",
    "klassieker",
-   "snel"
+   "snel",
+   "mediterraan"
   ],
   "ingredients": [
    {
@@ -231,7 +235,8 @@
   "servings": 2,
   "tags": [
    "pasta",
-   "oven"
+   "oven",
+   "mediterraan"
   ],
   "ingredients": [
    {
@@ -280,7 +285,8 @@
   "servings": 2,
   "tags": [
    "pasta",
-   "snel"
+   "snel",
+   "mediterraan"
   ],
   "ingredients": [
    {
@@ -626,7 +632,8 @@
   "tags": [
    "vis",
    "oven",
-   "snel"
+   "snel",
+   "avg"
   ],
   "ingredients": [
    {
@@ -672,7 +679,8 @@
   "servings": 2,
   "tags": [
    "vis",
-   "hollands"
+   "hollands",
+   "avg"
   ],
   "ingredients": [
    {
@@ -902,7 +910,8 @@
   "tags": [
    "vega",
    "snel",
-   "eenpans"
+   "eenpans",
+   "mediterraan"
   ],
   "ingredients": [
    {
@@ -966,7 +975,8 @@
   "servings": 2,
   "tags": [
    "vega",
-   "oven"
+   "oven",
+   "mediterraan"
   ],
   "ingredients": [
    {
@@ -1085,7 +1095,8 @@
   "servings": 2,
   "tags": [
    "vega",
-   "italiaans"
+   "italiaans",
+   "mediterraan"
   ],
   "ingredients": [
    {
@@ -1140,7 +1151,8 @@
   "tags": [
    "vega",
    "oven",
-   "snel"
+   "snel",
+   "mediterraan"
   ],
   "ingredients": [
    {
@@ -1461,7 +1473,8 @@
   "tags": [
    "vega",
    "italiaans",
-   "weekend"
+   "weekend",
+   "mediterraan"
   ],
   "ingredients": [
    {
@@ -1515,7 +1528,8 @@
   "servings": 2,
   "tags": [
    "wereld",
-   "weekend"
+   "weekend",
+   "mediterraan"
   ],
   "ingredients": [
    {
@@ -1586,7 +1600,8 @@
   "tags": [
    "oven",
    "wereld",
-   "weekend"
+   "weekend",
+   "mediterraan"
   ],
   "ingredients": [
    {
@@ -1777,7 +1792,8 @@
   "servings": 2,
   "tags": [
    "vega",
-   "wereld"
+   "wereld",
+   "mediterraan"
   ],
   "ingredients": [
    {
@@ -1840,7 +1856,9 @@
   "servings": 2,
   "tags": [
    "vis",
-   "oven"
+   "oven",
+   "avg",
+   "mediterraan"
   ],
   "ingredients": [
    {
@@ -2003,5 +2021,411 @@
    "from_months": 8
   },
   "uses_leftover": "kip"
+ },
+ {
+  "name": "Mediterrane kip-traybake met krieltjes en paprika",
+  "kind": "zelf",
+  "difficulty": 4,
+  "prep_minutes": 45,
+  "servings": 2,
+  "tags": [
+   "avg",
+   "mediterraan",
+   "oven",
+   "kindvriendelijk"
+  ],
+  "ingredients": [
+   {
+    "name": "kippendijen",
+    "qty": 400,
+    "unit": "g"
+   },
+   {
+    "name": "krieltjes",
+    "qty": 600,
+    "unit": "g"
+   },
+   {
+    "name": "paprika",
+    "qty": 2,
+    "unit": "stuk"
+   },
+   {
+    "name": "courgette",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "rode ui",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "knoflook",
+    "qty": 3,
+    "unit": "teen"
+   },
+   {
+    "name": "citroen",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "verse tijm of rozemarijn",
+    "qty": 1,
+    "unit": "bosje"
+   },
+   {
+    "name": "paprikapoeder",
+    "qty": 1,
+    "unit": "tl",
+    "pantry": true
+   },
+   {
+    "name": "olijfolie",
+    "pantry": true
+   },
+   {
+    "name": "zout en peper",
+    "pantry": true
+   }
+  ],
+  "baby": {
+   "tip": "AVG in mediterraan jasje: krieltjes prakken, kip in reepjes, zachte paprika en courgette als vingerfood.",
+   "take_out_before": "zout",
+   "from_months": 7
+  }
+ },
+ {
+  "name": "Gehaktballetjes in tomatensaus met orzo",
+  "kind": "zelf",
+  "difficulty": 4,
+  "prep_minutes": 35,
+  "servings": 2,
+  "tags": [
+   "mediterraan",
+   "pasta",
+   "kindvriendelijk"
+  ],
+  "ingredients": [
+   {
+    "name": "rundergehakt",
+    "qty": 300,
+    "unit": "g"
+   },
+   {
+    "name": "ei",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "paneermeel",
+    "qty": 3,
+    "unit": "el",
+    "pantry": true
+   },
+   {
+    "name": "passata",
+    "qty": 500,
+    "unit": "g"
+   },
+   {
+    "name": "ui",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "knoflook",
+    "qty": 2,
+    "unit": "teen"
+   },
+   {
+    "name": "courgette",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "orzo",
+    "qty": 200,
+    "unit": "g"
+   },
+   {
+    "name": "verse basilicum",
+    "qty": 1,
+    "unit": "bosje"
+   },
+   {
+    "name": "parmezaan",
+    "qty": 30,
+    "unit": "g"
+   },
+   {
+    "name": "olijfolie",
+    "pantry": true
+   }
+  ],
+  "baby": {
+   "tip": "Balletjes zonder zout kneden en halveren – perfect vingerfood. Orzo glijdt makkelijk; saus mag gewoon met knoflook.",
+   "take_out_before": "zout en parmezaan",
+   "from_months": 8
+  },
+  "makes_extra": "tomatensaus"
+ },
+ {
+  "name": "Kerrie-krieltjes met knoflookboontjes en gehaktballetjes",
+  "kind": "zelf",
+  "difficulty": 4,
+  "prep_minutes": 35,
+  "servings": 2,
+  "tags": [
+   "avg",
+   "hollands",
+   "kindvriendelijk",
+   "snel"
+  ],
+  "ingredients": [
+   {
+    "name": "krieltjes",
+    "qty": 600,
+    "unit": "g"
+   },
+   {
+    "name": "sperziebonen",
+    "qty": 400,
+    "unit": "g"
+   },
+   {
+    "name": "rundergehakt",
+    "qty": 300,
+    "unit": "g"
+   },
+   {
+    "name": "ui",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "knoflook",
+    "qty": 2,
+    "unit": "teen"
+   },
+   {
+    "name": "kerriepoeder",
+    "qty": 1,
+    "unit": "tl",
+    "pantry": true
+   },
+   {
+    "name": "roomboter",
+    "qty": 20,
+    "unit": "g"
+   },
+   {
+    "name": "zout en peper",
+    "pantry": true
+   }
+  ],
+  "baby": {
+   "tip": "Aardappel-groente-vlees met een smaakje: krieltjes in kerrie en boontjes met knoflook maken AVG een stuk spannender voor een avontuurlijke eter.",
+   "take_out_before": "zout",
+   "from_months": 8
+  }
+ },
+ {
+  "name": "Eenpans-rijst met kip, prei en milde kerrie",
+  "kind": "zelf",
+  "difficulty": 4,
+  "prep_minutes": 30,
+  "servings": 2,
+  "tags": [
+   "wereld",
+   "eenpans",
+   "snel",
+   "kindvriendelijk"
+  ],
+  "ingredients": [
+   {
+    "name": "kipfilet",
+    "qty": 300,
+    "unit": "g"
+   },
+   {
+    "name": "prei",
+    "qty": 2,
+    "unit": "stuk"
+   },
+   {
+    "name": "zilvervliesrijst",
+    "qty": 200,
+    "unit": "g"
+   },
+   {
+    "name": "doperwten",
+    "qty": 150,
+    "unit": "g"
+   },
+   {
+    "name": "ui",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "knoflook",
+    "qty": 2,
+    "unit": "teen"
+   },
+   {
+    "name": "kerriepoeder",
+    "qty": 2,
+    "unit": "tl",
+    "pantry": true
+   },
+   {
+    "name": "kokosmelk",
+    "qty": 200,
+    "unit": "ml"
+   },
+   {
+    "name": "groentebouillon zoutarm",
+    "qty": 500,
+    "unit": "ml",
+    "pantry": true
+   }
+  ],
+  "baby": {
+   "tip": "Kook met water en voeg de bouillon pas toe na het eruit scheppen van de babyportie. Rijst een paar keer per week, niet dagelijks.",
+   "take_out_before": "bouillon",
+   "from_months": 7
+  },
+  "makes_extra": "rijst"
+ },
+ {
+  "name": "Bloemkool-broccoli ovenschotel met aardappel en gehakt",
+  "kind": "zelf",
+  "difficulty": 4,
+  "prep_minutes": 50,
+  "servings": 2,
+  "tags": [
+   "avg",
+   "hollands",
+   "oven",
+   "batch"
+  ],
+  "ingredients": [
+   {
+    "name": "bloemkool",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "broccoli",
+    "qty": 350,
+    "unit": "g"
+   },
+   {
+    "name": "kruimige aardappelen",
+    "qty": 600,
+    "unit": "g"
+   },
+   {
+    "name": "rundergehakt",
+    "qty": 300,
+    "unit": "g"
+   },
+   {
+    "name": "ui",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "nootmuskaat",
+    "qty": 1,
+    "unit": "snuf",
+    "pantry": true
+   },
+   {
+    "name": "halfvolle melk",
+    "qty": 250,
+    "unit": "ml"
+   },
+   {
+    "name": "geraspte kaas",
+    "qty": 50,
+    "unit": "g"
+   },
+   {
+    "name": "zout en peper",
+    "pantry": true
+   }
+  ],
+  "baby": {
+   "tip": "Een babyportie zonder kaaskorst apart in een schaaltje; nootmuskaat en peper mogen mee. Vriest goed in.",
+   "take_out_before": "zout en kaas",
+   "from_months": 7
+  }
+ },
+ {
+  "name": "Orzo met tomaat, courgette en kikkererwten",
+  "kind": "zelf",
+  "difficulty": 4,
+  "prep_minutes": 25,
+  "servings": 2,
+  "tags": [
+   "mediterraan",
+   "vega",
+   "snel",
+   "eenpans"
+  ],
+  "ingredients": [
+   {
+    "name": "orzo",
+    "qty": 200,
+    "unit": "g"
+   },
+   {
+    "name": "kikkererwten",
+    "qty": 400,
+    "unit": "g"
+   },
+   {
+    "name": "courgette",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "snoeptomaatjes",
+    "qty": 250,
+    "unit": "g"
+   },
+   {
+    "name": "knoflook",
+    "qty": 2,
+    "unit": "teen"
+   },
+   {
+    "name": "citroen",
+    "qty": 1,
+    "unit": "stuk"
+   },
+   {
+    "name": "feta",
+    "qty": 75,
+    "unit": "g"
+   },
+   {
+    "name": "verse basilicum",
+    "qty": 1,
+    "unit": "bosje"
+   },
+   {
+    "name": "olijfolie",
+    "pantry": true
+   }
+  ],
+  "baby": {
+   "tip": "Kikkererwten licht platdrukken, tomaatjes in kwarten. Feta weglaten of een heel klein beetje.",
+   "take_out_before": "feta",
+   "from_months": 8
+  }
  }
 ]

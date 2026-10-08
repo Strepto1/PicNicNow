@@ -97,3 +97,14 @@ def test_repair_tool_pairs():
 def test_system_prompt_mentions_household(app):
     s = build_system(app)
     assert "Kevin en Sanne" in s and "biologisch" in s
+
+
+def test_haiku_has_no_fallbacks_and_usage_is_recorded(app, week):
+    from picnicnow import usage
+
+    app.settings.anthropic_api_key = "x"
+    app.update_profile(model="claude-haiku-5-5")
+    client = FakeClient([_msg([{"type": "text", "text": "Hoi!"}], "end_turn")])
+    Assistant(app, client=client).respond(week, "Kevin", "hoi")
+    assert "fallbacks" not in client.calls[0] and client.calls[0]["model"] == "claude-haiku-5-5"
+    assert usage.month_summary(app.db)["calls"] == 1
