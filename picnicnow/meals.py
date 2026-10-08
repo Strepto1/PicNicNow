@@ -214,7 +214,8 @@ def ready_meals(db: Database, picnic=None, search_terms: tuple[str, ...] = ("ver
                     if item.id not in out and looks_ready_made(item.name):
                         db.execute(
                             "INSERT INTO products(id, name, unit_quantity, price_cents, image_id, is_organic, category) "
-                            "VALUES (?,?,?,?,?,?,?) ON CONFLICT(id) DO NOTHING",
+                            "VALUES (?,?,?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET "
+                            "price_cents=COALESCE(products.price_cents, excluded.price_cents)",
                             (item.id, item.name, item.unit_quantity, item.price_cents, item.image_id,
                              int(item.is_organic), "Kant-en-klaar"))
                         out[item.id] = {"product_id": item.id, "name": item.name, "price_cents": item.price_cents,

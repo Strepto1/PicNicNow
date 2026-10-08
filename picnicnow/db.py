@@ -153,6 +153,9 @@ class Database:
         if self.path != ":memory:":
             self._conn.execute("PRAGMA journal_mode = WAL")
         self._conn.executescript(SCHEMA)
+        # opruimen: opvulprijzen (€4321,99) die eerder uit Picnic-zoekresultaten zijn opgeslagen
+        for table in ("products", "purchases", "list_items"):
+            self._conn.execute(f"UPDATE {table} SET price_cents = NULL WHERE price_cents = 432199")
         self._conn.commit()
 
     @contextmanager

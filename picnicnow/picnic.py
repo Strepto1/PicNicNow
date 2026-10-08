@@ -20,6 +20,50 @@ log = logging.getLogger(__name__)
 
 IMAGE_URL = "https://storefront-prod.nl.picnicinternational.com/static/images/{}/small.png"
 
+# Picnic vult ``display_price`` op sommige zoektegels met een opvulwaarde (432199 = €4321,99);
+# de echte prijs staat dan in ``price_ranges`` of in een PRICE-node van de tegel.
+PLACEHOLDER_PRICES = {432199}
+MAX_PLAUSIBLE_CENTS = 50_000  # €500: duurder verkoopt Picnic niet per stuk
+
+
+def plausible_price(value) -> int | None:
+    """Prijs in centen, of ``None`` als het een opvul- of onzinwaarde is."""
+    if isinstance(value, bool) or not isinstance(value, int | float):
+        return None
+    cents = round(value)
+    if cents <= 0 or cents > MAX_PLAUSIBLE_CENTS or cents in PLACEHOLDER_PRICES:
+        return None
+    return cents
+
+
+def _walk(node):
+    if isinstance(node, dict):
+        yield node
+        for v in node.values():
+            yield from _walk(v)
+    elif isinstance(node, list):
+        for v in node:
+            yield from _walk(v)
+
+
+def tile_price(item) -> int | None:
+    """Beste prijs (centen) voor een zoektegel: display_price, dan price_ranges, dan PRICE-nodes."""
+    price = plausible_price(item.display_price)
+    if price is not None:
+        return price
+    ranges = [r for r in (item.price_ranges or []) if isinstance(r, dict)]
+    ranges.sort(key=lambda r: r.get("from_quantity") or 0)
+    for r in ranges:
+        price = plausible_price(r.get("price"))
+        if price is not None:
+            return price
+    for node in _walk(getattr(item, "raw", None)):
+        if node.get("type") == "PRICE" and not node.get("isCrossed"):
+            price = plausible_price(node.get("price"))
+            if price is not None:
+                return price
+    return None
+
 
 @dataclass
 class ProductInfo:
@@ -103,6 +147,7 @@ class RealPicnic:
         self._on_token = on_token  # callback om het auth-token te bewaren
         self.api = PicnicAPI(country_code=country, auth_token=token)
         self.needs_2fa = False
+        self._price_cache: dict[str, int | None] = {}
 
     # --- inloggen ----------------------------------------------------------
     def is_ready(self) -> bool:
@@ -145,12 +190,11 @@ class RealPicnic:
         result = self.api.search(term)
         out = []
         for item in result.items[:limit]:
-            price = item.display_price
-            if price is None and item.price_ranges:
-                try:
-                    price = item.price_ranges[0].get("price")
-                except (AttributeError, IndexError):
-                    price = None
+            price = tile_price(item)
+            if price is None:
+                if item.display_price in PLACEHOLDER_PRICES:
+                    log.info("Opvulprijs in zoektegel %s (%s), haal productpagina op", item.id, item.name)
+                price = self._article_price(item.sole_article_id or item.id)
             promo = any((d or {}).get("type") in ("PROMO", "PRICE") for d in item.decorators if isinstance(d, dict))
             out.append(ProductInfo(
                 id=item.sole_article_id or item.id,
@@ -163,6 +207,18 @@ class RealPicnic:
             ))
         return out
 
+    def _article_price(self, article_id: str) -> int | None:
+        """Prijs van de productpagina, als de zoektegel geen bruikbare prijs had."""
+        key = f"{date.today().isoformat()}:{article_id}"  # één keer per dag per product
+        if key not in self._price_cache:
+            try:
+                art = self.api.get_article(article_id)
+            except Exception as exc:  # een ontbrekende prijs mag het zoeken niet breken
+                log.warning("Prijs voor %s niet opgehaald: %s", article_id, exc)
+                return None
+            self._price_cache[key] = plausible_price(art.price) if art else None
+        return self._price_cache[key]
+
     # --- mandje ------------------------------------------------------------
     @staticmethod
     def _cart_state(cart) -> CartState:
@@ -171,7 +227,7 @@ class RealPicnic:
             for art in line.items:
                 qty = next((d.quantity for d in art.decorators if d.type == "QUANTITY" and d.quantity), 1)
                 lines.append(CartLine(product_id=art.id or "", name=art.name or "", quantity=qty,
-                                      price_cents=art.price))
+                                      price_cents=plausible_price(art.price)))
         return CartState(lines=lines, total_cents=cart.total_price)
 
     def get_cart(self) -> CartState:
@@ -208,12 +264,13 @@ class RealPicnic:
                             continue
                         qty = next((dec.quantity for dec in art.decorators
                                     if dec.type == "QUANTITY" and dec.quantity), 1)
+                        price = plausible_price(art.price)
                         delivery.lines.append(OrderedLine(
-                            product=ProductInfo(id=art.id, name=art.name or "", price_cents=art.price,
+                            product=ProductInfo(id=art.id, name=art.name or "", price_cents=price,
                                                 unit_quantity=art.unit_quantity,
                                                 image_id=(art.image_ids or [None])[0],
                                                 is_organic=is_organic(art.name or "")),
-                            quantity=qty, price_cents=art.price))
+                            quantity=qty, price_cents=price))
             out.append(delivery)
         return out
 
